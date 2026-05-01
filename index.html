@@ -198,13 +198,22 @@
         .dict-word {
             border-bottom: 1px dashed var(--spotify-text-dim);
             cursor: pointer;
-            transition: color 0.2s, text-shadow 0.2s;
+            transition: all 0.2s;
         }
 
         .dict-word.active {
-            color: #fbff00; /* Neon Yellow */
             border-bottom: none;
             font-weight: bold;
+        }
+
+        /* Dual-color Neon Dictionary Styles */
+        .neon-en {
+            color: #39ff14; /* Neon Green */
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+        }
+
+        .neon-tr {
+            color: #fbff00; /* Neon Yellow */
             text-shadow: 0 0 8px rgba(255, 255, 0, 0.4);
         }
 
@@ -487,7 +496,6 @@
 
     <script>
         // --- 1. TRACK DATA & CUSTOM DICTIONARIES ---
-        // Each track now has its very own dictionary object!
         const tracks = [
             { 
                 title: "The Bat in the War", src: "The Bat in the War.wav",
@@ -833,7 +841,7 @@
                 return str.replace(/\b([a-zA-Z]+)\b/g, function(match) {
                     let lowerMatch = match.toLowerCase();
                     if (trackDictionary[lowerMatch]) {
-                        return `<span class="dict-word" data-en="${match}" data-tr="${match} [${trackDictionary[lowerMatch]}]">${match}</span>`;
+                        return `<span class="dict-word" data-en="${match}" data-tr="${trackDictionary[lowerMatch]}">${match}</span>`;
                     }
                     return match;
                 });
@@ -883,7 +891,6 @@
                 nowPlayingArtist.textContent = "Listening Practice";
                 npArt.style.display = "block";
                 
-                // Update transcript box with the CUSTOM dictionary for this specific track!
                 transcriptTitle.textContent = track.title;
                 transcriptText.innerHTML = formatTranscriptWithDict(track.text, track.dictionary);
             }
@@ -953,15 +960,19 @@
             }
         });
 
-        // Dictionary Click Event
+        // UPDATED Dictionary Click Event
         transcriptText.addEventListener('click', function(e) {
-            if (e.target.classList.contains('dict-word')) {
-                if (e.target.classList.contains('active')) {
-                    e.target.classList.remove('active');
-                    e.target.textContent = e.target.getAttribute('data-en');
+            const target = e.target.closest('.dict-word'); // Ensures we grab the right element even if inner spans are clicked
+            if (target) {
+                if (target.classList.contains('active')) {
+                    target.classList.remove('active');
+                    target.innerHTML = target.getAttribute('data-en');
                 } else {
-                    e.target.classList.add('active');
-                    e.target.textContent = e.target.getAttribute('data-tr');
+                    target.classList.add('active');
+                    const enWord = target.getAttribute('data-en');
+                    const trWord = target.getAttribute('data-tr');
+                    // Wraps the words in our new neon classes
+                    target.innerHTML = `<span class="neon-en">${enWord}</span> <span class="neon-tr">[${trWord}]</span>`;
                 }
             }
         });

@@ -14,7 +14,7 @@
             --spotify-text-bright: #ffffff;
             --spotify-green: #1db954;
             --spotify-green-hover: #1ed760;
-            --playlist-color: #4a6fa5; /* A nice calming blue gradient base */
+            --playlist-color: #4a6fa5;
         }
 
         * {
@@ -80,14 +80,13 @@
             flex: 1;
             background-color: var(--spotify-base);
             border-radius: 8px;
-            margin: 8px 8px 98px 0; /* Leaves room for bottom player */
+            margin: 8px 8px 98px 0;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
             position: relative;
         }
 
-        /* Playlist Header */
         .playlist-header {
             padding: 40px 30px;
             display: flex;
@@ -126,7 +125,6 @@
             font-size: 14px;
         }
 
-        /* Action Bar (Play Button) */
         .action-bar {
             padding: 24px 30px;
             background: linear-gradient(rgba(0,0,0,.6) 0, var(--spotify-base) 100%);
@@ -154,7 +152,6 @@
             transform: scale(1.05);
         }
 
-        /* Track List */
         .track-list-container {
             padding: 0 30px 40px 30px;
         }
@@ -199,7 +196,6 @@
             font-size: 14px;
         }
 
-        /* Hover effect to show play triangle instead of number */
         .track-item:hover .track-number {
             display: none;
         }
@@ -246,7 +242,6 @@
             z-index: 100;
         }
 
-        /* Left side of player */
         .now-playing-section {
             width: 30%;
             display: flex;
@@ -278,7 +273,6 @@
             font-size: 12px;
         }
 
-        /* Center controls */
         .controls-section {
             width: 40%;
             display: flex;
@@ -358,7 +352,6 @@
             background-color: var(--spotify-green);
         }
         
-        /* Right side (Empty for symmetry, like volume in real app) */
         .right-section {
             width: 30%;
         }
@@ -445,7 +438,7 @@
     <audio id="audio-player"></audio>
 
     <script>
-        // --- 1. TRACK DATA (Alphabetized and Cleaned) ---
+        // --- 1. TRACK DATA ---
         const tracks = [
             { title: "The Bat in the War", src: "The Bat in the War.wav" },
             { title: "The Bear and the Chipmunk", src: "The Bear and the Chipmunk.wav" },
@@ -528,6 +521,7 @@
         // --- 3. STATE ---
         let currentTrackIndex = null;
         let isPlaying = false;
+        let delayTimeout = null; // Variable to hold our 3-second delay timer
 
         // --- 4. INITIALIZATION ---
         function renderTracks() {
@@ -555,6 +549,11 @@
 
         // --- 5. AUDIO LOGIC ---
         function playTrack(index) {
+            // Cancel the 3-second delay if the user manually clicks a new track
+            if (delayTimeout) {
+                clearTimeout(delayTimeout);
+            }
+
             currentTrackIndex = index;
             const track = tracks[index];
             
@@ -562,7 +561,7 @@
                 audioPlayer.src = track.src;
                 nowPlayingTitle.textContent = track.title;
                 nowPlayingArtist.textContent = "Listening Practice";
-                npArt.style.display = "block"; // Show cover art thumb
+                npArt.style.display = "block";
             }
             
             audioPlayer.play();
@@ -572,7 +571,6 @@
         }
 
         function togglePlayPause() {
-            // If nothing loaded yet, play the first track
             if (!audioPlayer.src) {
                 if (tracks.length > 0) playTrack(0);
                 return;
@@ -620,9 +618,23 @@
         // --- 6. EVENT LISTENERS ---
         playPauseBtn.addEventListener('click', togglePlayPause);
         mainPlayBtn.addEventListener('click', togglePlayPause);
-        nextBtn.addEventListener('click', playNext);
-        prevBtn.addEventListener('click', playPrev);
-        audioPlayer.addEventListener('ended', playNext);
+        
+        nextBtn.addEventListener('click', () => {
+            if (delayTimeout) clearTimeout(delayTimeout);
+            playNext();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            if (delayTimeout) clearTimeout(delayTimeout);
+            playPrev();
+        });
+
+        // Trigger the 3-second delay when a track ends
+        audioPlayer.addEventListener('ended', () => {
+            delayTimeout = setTimeout(() => {
+                playNext();
+            }, 3000); // 3000 milliseconds = 3 seconds
+        });
 
         audioPlayer.addEventListener('timeupdate', () => {
             if (audioPlayer.duration) {

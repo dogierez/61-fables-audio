@@ -182,13 +182,14 @@
             display: none;
             line-height: 1.8; 
             font-size: 1.15rem; 
-            border-left: 4px solid var(--spotify-green);
+            border-left: 4px solid #04d9ff; /* Neon Blue Border */
         }
 
         .transcript-container h3 {
             margin-bottom: 15px;
-            color: var(--spotify-green);
-            font-size: 1.3rem;
+            color: #04d9ff; /* Neon Blue Text */
+            text-shadow: 0 0 8px rgba(4, 217, 255, 0.5); /* Neon Blue Glow */
+            font-size: 1.5rem;
         }
 
         .transcript-container p {
@@ -495,312 +496,312 @@
     <audio id="audio-player"></audio>
 
     <script>
-        // --- 1. TRACK DATA & CUSTOM DICTIONARIES ---
+        // --- 1. TRACK DATA & EXPANDED CUSTOM DICTIONARIES ---
         const tracks = [
             { 
                 title: "The Bat in the War", src: "The Bat in the War.wav",
                 text: `A long time ago, a terrible war started between the flying birds and the walking beasts. The clever bat did not know which side to choose. He only wanted to be safe. When the birds were winning the battle, the bat flew to their leader. He said, "Look at my long wings! I am a bird. I will fight with you." But the next day, the strong beasts were winning. The bat walked on the ground and said, "Look at my sharp teeth and brown fur! I am a beast. I am on your side." Finally, the long war ended, and there was peace in the forest. Both sides organized a meeting. They remembered the bat's selfish trick. Because he was loyal to nobody, nobody wanted to be his friend. The sad bat had to hide in dark caves forever.<br><br><strong>Lesson:</strong> An opportunist who constantly switches sides to be on the winning team will eventually end up entirely alone.`,
-                dictionary: { "terrible": "korkunç", "clever": "zeki", "beasts": "canavarlar", "selfish": "bencil", "opportunist": "fırsatçı" }
+                dictionary: { "terrible": "korkunç", "clever": "zeki", "choose": "seçmek", "safe": "güvende", "winning": "kazanan", "fight": "savaşmak", "sharp": "keskin", "organized": "düzenledi", "remembered": "hatırladılar", "selfish": "bencil", "loyal": "sadık", "hide": "saklanmak", "opportunist": "fırsatçı", "constantly": "sürekli", "switches": "değiştirir", "entirely": "tamamen" }
             },
             { 
                 title: "The Bear and the Chipmunk", src: "The Bear and the Chipmunk.wav",
                 text: `A long time ago, a huge, proud bear was walking in the green forest. He felt very important and boastful. He shouted loudly, "I am the strongest animal in the world! I can do absolutely anything!" A tiny chipmunk heard him and asked, "Can you really stop the sun from coming up in the morning?" The arrogant bear said, "Yes, I certainly can!" The bear sat down facing the east and commanded, "The sun will not rise today!" But the next morning, the bright sun came up as usual. The little chipmunk started to laugh. He jumped around and sang, "The big bear is wrong! He is not the strongest!" He laughed very hard at the embarrassed bear. The bear became furious, swung his heavy paw, and scratched the chipmunk's back.<br><br><strong>Lesson:</strong> Never boast about impossible things. Also, if someone makes a foolish mistake, do not laugh at them and make them angry.`,
-                dictionary: { "proud": "gururlu", "boastful": "övüngen", "arrogant": "kibirli", "embarrassed": "utanmış", "furious": "öfkeli" }
+                dictionary: { "huge": "kocaman", "proud": "gururlu", "boastful": "övüngen", "shouted": "bağırdı", "strongest": "en güçlü", "arrogant": "kibirli", "commanded": "emretti", "bright": "parlak", "embarrassed": "utanmış", "furious": "öfkeli", "swung": "salladı", "scratched": "tırmaladı", "boast": "övünmek", "impossible": "imkansız", "foolish": "aptalca" }
             },
             { 
                 title: "The Bear and the Two Friends", src: "The Bear and the Two Friends.wav",
                 text: `Two good friends were walking together through a dark, quiet forest. Suddenly, a huge, hungry bear appeared on the path. One friend panicked, ran away quickly, climbed a tall tree, and hid among the leaves. The other friend could not run fast enough. He fell to the ground and pretended to be completely dead. He knew that bears usually do not eat dead animals. The heavy bear came very close, smelled the man's hair and ears, and then walked away slowly. After the danger passed, the friend in the tree safely came down. He smiled and asked, "What did the big bear whisper in your ear?" The man brushed the dirt off his clothes and replied, "He told me never to travel with a friend who leaves me alone in danger."<br><br><strong>Lesson:</strong> True friends stay with you and help you during your most difficult and dangerous times.`,
-                dictionary: { "panicked": "panikledi", "pretended": "numara yaptı", "whispered": "fısıldadı" }
+                dictionary: { "quiet": "sessiz", "hungry": "aç", "appeared": "belirdi", "panicked": "panikledi", "climbed": "tırmandı", "pretended": "numara yaptı", "completely": "tamamen", "heavy": "ağır", "smelled": "kokladı", "safely": "güvenle", "whisper": "fısıldamak", "replied": "cevap verdi", "difficult": "zor", "dangerous": "tehlikeli" }
             },
             { 
                 title: "The Boy and the Rattlesnake", src: "The Boy and the Rattlesnake.wav",
                 text: `A young boy was walking alone in the cold, snowy mountains. Suddenly, he saw a rattlesnake on the frozen ground. The snake was freezing and almost dead. The snake looked up and begged, "Please, little boy, I am so cold. Put me under your warm winter jacket and take me down the mountain, or I will certainly die." The boy stepped back and said, "No! You are a dangerous rattlesnake. If I pick you up, you will bite me and I will die." The snake promised, "I will not bite you. You are saving my life. I will be good." The boy felt sorry for the poor animal. He put the snake safely inside his jacket and walked down the mountain. When they reached the warm valley, the boy put the snake on the green grass. Suddenly, the snake quickly bit the boy's leg! The boy fell down in pain and cried, "Why did you bite me? You promised!" The snake looked at him coldly and said, "You knew I was a snake when you picked me up."<br><br><strong>Lesson:</strong> Be careful who you trust. Kindness cannot change a dangerous person's true nature.`,
-                dictionary: { "freezing": "dondurucu", "dangerous": "tehlikeli", "promised": "söz verdi", "nature": "doğa/huy" }
+                dictionary: { "frozen": "donmuş", "freezing": "dondurucu", "begged": "yalvardı", "certainly": "kesinlikle", "dangerous": "tehlikeli", "promised": "söz verdi", "saving": "kurtaran", "safely": "güvenle", "reached": "ulaştılar", "cried": "ağladı", "coldly": "soğukça", "trust": "güvenmek", "nature": "doğa/huy" }
             },
             { 
                 title: "The Butterfly and the Kind Monk", src: "The Butterfly and the Kind Monk.wav",
                 text: `Two monks, an old teacher and a young student, were walking in a quiet garden. They saw a butterfly struggling to come out of its cocoon. The small butterfly was pushing hard, but the opening was too small. The young monk felt very sorry for the insect. He took his small knife and carefully cut the cocoon to help the butterfly. The butterfly came out easily, but its wings were small, weak, and folded. The young monk waited for it to fly, but it could only crawl on the ground. It never flew. The student was very upset and asked the old monk, "Why can't it fly? I only wanted to help." The old monk explained, "By helping him, you actually hurt him. The struggle to get out of the tiny hole is nature’s way of strengthening the butterfly's muscles. It pushes fluid into the wings so they can fly. Because you interfered with the struggle, you made the butterfly lame forever."<br><br><strong>Lesson:</strong> Sometimes struggle is exactly what we need in life to become strong. Without effort, we can never find our true power and fly.`,
-                dictionary: { "struggling": "çabalayan", "interfered": "müdahale etti", "effort": "çaba" }
+                dictionary: { "struggling": "çabalayan", "pushing": "iten", "carefully": "dikkatlice", "weak": "zayıf", "folded": "katlanmış", "crawl": "sürünmek", "upset": "üzgün", "explained": "açıkladı", "strengthening": "güçlendirme", "interfered": "müdahale etti", "lame": "sakat", "effort": "çaba" }
             },
             { 
                 title: "The Camel and the Thistle", src: "The Camel and the Thistle.wav",
                 text: `In the middle of the hot, dry desert, a hungry camel found a bush covered in sharp, bitter thorns. Most animals stayed away from the plant, but the camel began to eat it greedily. The sharp thorns quickly cut the camel’s tongue and the roof of its mouth. As it chewed, its own warm, salty blood began to flow and mix with the juices of the plant. To the camel, this made the thorns taste incredibly sweet and delicious. It did not realize it was actually tasting its own blood. The more it ate, the more it bled, and the "sweeter" the meal became. The camel was so focused on the sweet taste that it forgot the pain. It continued to eat until it finally collapsed and died from the loss of blood.<br><br><strong>Lesson:</strong> Be careful of "pleasures" that are actually destroying you. Sometimes we mistake our own pain and sacrifice for a reward, and we don't realize we are hurting ourselves until it is too late.`,
-                dictionary: { "thorns": "dikenler", "greedily": "açgözlülükle", "collapsed": "yere yığıldı", "sacrifice": "fedakarlık" }
+                dictionary: { "sharp": "keskin", "bitter": "acı", "thorns": "dikenler", "greedily": "açgözlülükle", "chewed": "çiğnedi", "incredibly": "inanılmaz derecede", "delicious": "lezzetli", "realize": "fark etmek", "focused": "odaklanmış", "collapsed": "yere yığıldı", "destroying": "yok eden", "mistake": "yanılgı/hata", "sacrifice": "fedakarlık", "reward": "ödül" }
             },
             { 
                 title: "The Camel in the Tent", src: "The Camel in the Tent.wav",
                 text: `It was a freezing, windy night in the sandy desert. An Arab merchant was sleeping comfortably in his warm tent. His working camel was standing outside in the cold. The camel asked, "Master, my nose is freezing. Can I put just my nose inside the tent?" The kind master said yes. A little later, the camel asked, "Can I put my head and neck inside? It is very windy." The master agreed again. Slowly, the clever camel put his front legs, and finally his whole heavy body into the tent. The tent was far too small for both of them. Because the camel was so big, he easily pushed the poor master out into the freezing night.<br><br><strong>Lesson:</strong> If you give a bad habit or a toxic person a little bit of room in your life, they will soon take over everything.`,
-                dictionary: { "merchant": "tüccar", "comfortably": "rahatça", "toxic": "zehirli" }
+                dictionary: { "freezing": "dondurucu", "windy": "rüzgarlı", "merchant": "tüccar", "comfortably": "rahatça", "agreed": "kabul etti", "clever": "zeki", "heavy": "ağır", "pushed": "itti", "habit": "alışkanlık", "toxic": "zehirli" }
             },
             { 
                 title: "The Cat and the Fox", src: "The Cat and the Fox.wav",
                 text: `A quiet cat and a boastful fox were resting in the forest. The proud fox said, "I am so smart! I know a hundred different tricks to escape from dangerous hunting dogs. I can run in circles, hide in bushes, and swim across rivers." The humble cat listened carefully and said, "I only know one simple trick. But it usually works for me." Suddenly, they heard the loud, terrifying sound of hunting dogs running toward them. The cat immediately used her one simple trick. She quickly climbed straight up a very tall tree and hid safely in the high branches. The hungry dogs could not reach her. The fox, however, started thinking about his hundred different tricks. He tried running, then hiding, then swimming, but he was too confused and slow. The fast dogs easily caught the fox. From the high tree, the safe cat watched the boastful fox.<br><br><strong>Lesson:</strong> One simple, reliable plan that actually works is much better than a hundred complicated plans that only confuse you.`,
-                dictionary: { "humble": "mütevazı", "terrifying": "dehşet verici", "confused": "kafası karışmış", "reliable": "güvenilir" }
+                dictionary: { "quiet": "sessiz", "boastful": "övüngen", "proud": "gururlu", "escape": "kaçmak", "humble": "mütevazı", "terrifying": "dehşet verici", "immediately": "hemen", "climbed": "tırmandı", "confused": "kafası karışmış", "caught": "yakaladı", "reliable": "güvenilir", "complicated": "karmaşık" }
             },
             { 
                 title: "The Crow and the Peacock Feathers", src: "The Crow and the Peacock Feathers.wav",
                 text: `A normal black crow lived in a beautiful royal garden. He always watched the magnificent peacocks walking around the green grass. He felt very jealous of their bright, colorful feathers and their proud, elegant walk. One afternoon, the jealous crow found some beautiful blue and green peacock feathers lying on the ground. He quickly picked them up and stuck them tightly into his own black tail. He walked over to the peacocks and tried to act just like them. But the intelligent peacocks immediately saw his silly trick. They were very angry, pecked him with their sharp beaks, and chased him away. The sad, embarrassed crow went back to his old friends, the normal black crows. But the crows saw the leftover peacock feathers and completely refused to accept him back. "If you are too ashamed to be a normal crow, you cannot live with us," they said. The silly bird was left entirely alone.<br><br><strong>Lesson:</strong> Accept exactly who you are. If you pretend to be someone else, you will lose your true friends.`,
-                dictionary: { "magnificent": "muhteşem", "jealous": "kıskanç", "ashamed": "utanmış", "pretend": "numara yapmak" }
+                dictionary: { "magnificent": "muhteşem", "jealous": "kıskanç", "elegant": "zarif", "tightly": "sıkıca", "intelligent": "zeki", "pecked": "gagaladılar", "chased": "kovaladılar", "embarrassed": "utanmış", "refused": "reddettiler", "ashamed": "utanmış", "entirely": "tamamen", "pretend": "numara yapmak" }
             },
             { 
                 title: "The Deer and His Antlers", src: "The Deer and His Antlers.wav",
                 text: `A thirsty brown deer went to a quiet, clear lake to drink some fresh water. While he was drinking, he looked at his own reflection in the water. He greatly admired his large, beautiful, branching antlers on his head. "I look incredibly handsome and majestic," he thought proudly. Then, he looked down at his thin, skinny legs. "But my legs are so ugly and weak," he complained sadly. Suddenly, a hungry lion jumped out of the tall grass! The frightened deer ran away as fast as he could. His thin, strong legs carried him very quickly, and he easily escaped the lion in the open field. But when the deer ran into the thick forest, his beautiful, large antlers got caught tightly in the tree branches. He could not move! The lion finally caught him. The dying deer cried, "The ugly legs I hated tried to save me, but the beautiful antlers I loved destroyed me."<br><br><strong>Lesson:</strong> We often value useless, beautiful things and completely ignore the ugly, practical things that actually help us.`,
-                dictionary: { "reflection": "yansıma", "admired": "hayran kaldı", "majestic": "görkemli", "practical": "pratik/kullanışlı" }
+                dictionary: { "thirsty": "susamış", "reflection": "yansıma", "admired": "hayran kaldı", "branching": "dallanan", "majestic": "görkemli", "skinny": "sıska", "complained": "şikayet etti", "frightened": "korkmuş", "escaped": "kaçtı", "caught": "takıldı/yakalandı", "destroyed": "yok etti", "useless": "işe yaramaz", "practical": "pratik/kullanışlı" }
             },
             { 
                 title: "The Dog and His Reflection", src: "The Dog and His Reflection.wav",
                 text: `A hungry street dog finally found a large, delicious piece of meat. He was very happy and decided to carry it home to eat in peace. On his way, he had to cross a narrow wooden bridge over a clear, deep river. He looked down into the water and saw his own reflection. However, he thought it was another dog carrying an even bigger piece of meat. The greedy dog wanted that second piece of meat too. He opened his mouth wide to bark and attack the "other dog." As soon as he opened his mouth, his own beautiful piece of meat fell straight into the fast river and disappeared. The silly dog was left with absolutely nothing for dinner.<br><br><strong>Lesson:</strong> Greed can easily make you lose the valuable things you already have in your hands.`,
-                dictionary: { "delicious": "lezzetli", "narrow": "dar", "greedy": "açgözlü", "valuable": "değerli" }
+                dictionary: { "delicious": "lezzetli", "decided": "karar verdi", "narrow": "dar", "reflection": "yansıma", "carrying": "taşıyan", "greedy": "açgözlü", "attack": "saldırmak", "disappeared": "kayboldu", "absolutely": "kesinlikle", "valuable": "değerli" }
             },
             { 
                 title: "The Dog and the Wolf", src: "The Dog and the Wolf.wav",
                 text: `A hungry, skinny wolf was walking in the dark woods. He met a large, fat, and happy guard dog. The wolf said, "You look so healthy and well-fed! I am always hungry and tired." The dog smiled and said, "Come live with my human master! I guard his house at night, and he gives me warm food, fresh water, and a soft bed." The wolf was very excited to start this easy, comfortable life. But as they walked to the big house, the wolf noticed a large, red mark on the dog's neck. "What is that painful mark?" the wolf asked carefully. "Oh, that is nothing," the dog answered. "During the day, my master ties me to a thick, heavy chain so I do not run away." The wolf immediately stopped walking. "You are tied up? You cannot run free?" The wolf turned around to go back to the cold forest. "I prefer to be hungry and completely free," he said, "than to be fat and live as a slave."<br><br><strong>Lesson:</strong> A difficult life with total freedom is much better than a comfortable life in chains.`,
-                dictionary: { "skinny": "sıska", "comfortable": "rahat", "slave": "köle", "freedom": "özgürlük" }
+                dictionary: { "skinny": "sıska", "healthy": "sağlıklı", "excited": "heyecanlı", "comfortable": "rahat", "noticed": "fark etti", "painful": "acı verici", "heavy": "ağır", "immediately": "hemen", "prefer": "tercih etmek", "completely": "tamamen", "slave": "köle", "freedom": "özgürlük" }
             },
             { 
                 title: "The Dog in the Manger", src: "The Dog in the Manger.wav",
                 text: `A tired farm dog wanted to find a comfortable place to sleep. He jumped into a manger, which is a large wooden box where horses and cows eat their dry hay. Soon, a tired and very hungry horse came into the barn to eat his dinner. But the grumpy dog woke up, barked loudly, and showed his sharp teeth. He bit at the horse and refused to let him eat the food. The disappointed horse looked at the dog and said, "You are a very selfish animal! You cannot eat the dry hay yourself, but you will not let me eat it either. You are guarding something you do not even need."<br><br><strong>Lesson:</strong> Some bitter people do not want others to enjoy the good things that they cannot enjoy themselves.`,
-                dictionary: { "grumpy": "huysuz", "refused": "reddetti", "disappointed": "hayal kırıklığına uğramış", "bitter": "acımasız/kinci" }
+                dictionary: { "comfortable": "rahat", "grumpy": "huysuz", "barked": "havladı", "refused": "reddetti", "disappointed": "hayal kırıklığına uğramış", "selfish": "bencil", "guarding": "koruyan/nöbet tutan", "bitter": "acımasız/kinci" }
             },
             { 
                 title: "The Donkey and the Lapdog", src: "The Donkey and the Lapdog.wav",
                 text: `A rich farmer had a big, hard-working donkey and a tiny, cute lapdog. The farmer loved the little dog very much. The happy dog sat on his lap, ate sweet treats from his hand, and slept inside the warm, safe house. The jealous donkey had to sleep in the cold barn and carry heavy wood all day long. The donkey thought, "If I act exactly like the cute dog, the master will love me too!" One quiet evening, the huge donkey broke into the master's living room. He tried to jump playfully onto the farmer's lap, just like the tiny dog always did. The heavy donkey completely broke the chairs, smashed the wooden table, and hurt the terrified farmer. The angry farm workers quickly ran inside with heavy sticks. They hit the silly donkey and chased him back to the cold barn. The poor donkey was very confused; he only wanted to be loved like the little dog.<br><br><strong>Lesson:</strong> Do not envy others or try to be someone you are not. Everyone has their own unique place and purpose.`,
-                dictionary: { "jealous": "kıskanç", "smashed": "parçaladı", "terrified": "dehşete düşmüş", "envy": "imrenmek" }
+                dictionary: { "tiny": "küçük", "jealous": "kıskanç", "playfully": "oyuncu bir şekilde", "completely": "tamamen", "smashed": "parçaladı", "terrified": "dehşete düşmüş", "chased": "kovaladılar", "confused": "kafası karışmış", "envy": "imrenmek", "unique": "eşsiz" }
             },
             { 
                 title: "The Donkey and the Salt", src: "The Donkey and the Salt..wav",
                 text: `A hard-working merchant owned a strong donkey. Every day, they carried heavy bags of expensive salt across a river. One morning, the donkey slipped and fell into the water. The salt quickly melted, and the bags became wonderfully light. The donkey was thrilled. The very next day, the donkey decided to fall into the river on purpose to make his work easy. The smart merchant watched this and understood the lazy trick. On the third day, the merchant filled the bags with soft, dry sponges instead of salt. The donkey happily fell into the water again. But this time, the sponges drank the heavy water, and the bags became incredibly heavy to carry.<br><br><strong>Lesson:</strong> You cannot play the same lazy trick every time. Dishonesty will eventually bring you difficult trouble.`,
-                dictionary: { "expensive": "pahalı", "melted": "eridi", "thrilled": "heyecanlı", "dishonesty": "sahtekarlık" }
+                dictionary: { "merchant": "tüccar", "expensive": "pahalı", "slipped": "kaydı", "melted": "eridi", "thrilled": "heyecanlı", "decided": "karar verdi", "understood": "anladı", "lazy": "tembel", "incredibly": "inanılmaz derecede", "dishonesty": "sahtekarlık", "eventually": "sonunda" }
             },
             { 
                 title: "The Eagle and the Arrow", src: "The Eagle and the Arrow..wav",
                 text: `A beautiful, strong eagle was sitting high on a tall, rocky mountain. He was looking down at the green valley below. He felt very safe, proud, and powerful. However, a hunter was hiding quietly in the dark bushes on the ground. The hunter saw the magnificent bird, pulled his wooden bow, and shot a sharp arrow into the sky. The arrow flew perfectly straight and hit the great eagle right in the center of his heart. As the dying eagle was falling to the ground, he looked closely at the arrow in his chest. He saw that the feathers on the back of the arrow were actually eagle feathers. The eagle cried, "This makes my death so much more painful! I am dying from a weapon that was made using my own feathers."<br><br><strong>Lesson:</strong> It hurts the most when our own tools, our own people, or our own mistakes are used to destroy us.`,
-                dictionary: { "magnificent": "muhteşem", "painful": "acı verici", "weapon": "silah", "destroy": "yok etmek" }
+                dictionary: { "proud": "gururlu", "hiding": "saklanan", "magnificent": "muhteşem", "pulled": "çekti", "perfectly": "kusursuzca", "closely": "yakından", "painful": "acı verici", "weapon": "silah", "mistakes": "hatalar", "destroy": "yok etmek" }
             },
             { 
                 title: "The Eagle and the Beetle", src: "The Eagle and the Beetle.wav",
                 text: `A small hare was being chased by a massive eagle. The hare saw a tiny beetle and begged for help. The beetle turned to the eagle and said, "Please, powerful bird, do not kill this poor animal. He has asked for my protection." The eagle laughed at the tiny insect and ate the hare right in front of him. The beetle was furious and decided to get revenge. He followed the eagle to her high nest. He waited for her to leave, and then he rolled her eggs out of the nest until they smashed on the rocks. The eagle moved her nest even higher, but the beetle found her again and destroyed the eggs. Finally, the eagle asked the King of the Gods for help. She laid her eggs in the King's lap for safety. The clever beetle flew over the King’s head and dropped a ball of dirt. When the King jumped up to brush the dirt away, the eggs fell and broke. The eagle was left with nothing.<br><br><strong>Lesson:</strong> Never look down on those who seem small or weak. A small enemy can cause a giant problem if you treat them with cruelty.`,
-                dictionary: { "massive": "devasa", "furious": "öfkeli", "revenge": "intikam", "cruelty": "zulüm" }
+                dictionary: { "massive": "devasa", "begged": "yalvardı", "protection": "koruma", "furious": "öfkeli", "revenge": "intikam", "smashed": "parçalandı", "destroyed": "yok etti", "clever": "zeki", "dropped": "düşürdü", "weak": "zayıf", "cruelty": "zulüm" }
             },
             { 
                 title: "The Eagle Who Thought He Was a Chicken", src: "The Eagle Who Thought He Was a Chicken.wav",
                 text: `High on a beautiful mountain, a mother eagle laid a large egg in her nest. One night, a strong earthquake shook the mountain. The eagle egg rolled down the rocks and landed safely in a chicken farm in the valley. When the egg hatched, a small eagle came out with the little chicks. The eagle grew up with his chicken siblings. He spent his days scratching the dirt for seeds. He never tried to fly because chickens do not fly. One afternoon, he looked at the sky and saw a magnificent bird soaring above the clouds. "I wish I could fly like that," he cried. His chicken brother laughed, "Don't be stupid! That is a Great Eagle. You are just a chicken." The eagle believed him. He died without ever knowing he was a king of the sky.<br><br><strong>Lesson:</strong> Your environment can limit your dreams. Do not listen to people who tell you that you cannot fly; find your true nature.`,
-                dictionary: { "earthquake": "deprem", "siblings": "kardeşler", "soaring": "süzülen", "environment": "çevre" }
+                dictionary: { "earthquake": "deprem", "shook": "salladı", "hatched": "çatladı/yumurtadan çıktı", "siblings": "kardeşler", "scratching": "kazıyan", "magnificent": "muhteşem", "soaring": "süzülen", "believed": "inandı", "environment": "çevre", "nature": "doğa/gerçek kimlik" }
             },
             { 
                 title: "The Elephant and the Rope", src: "The Elephant and the Rope..wav",
                 text: `A curious traveler was visiting a large circus camp. He saw a huge adult elephant standing quietly. The elephant was tied to a wooden pole with only a very thin, small rope. The traveler was very surprised. He asked the trainer, "Why doesn't this giant animal break that weak rope and run away?" The trainer explained, "When he was a baby, we used this exact same rope to tie him. Back then, it was strong enough. He tried to break it many times, but he failed. Now he is big and powerful, but he still believes the rope can hold him. Because he thinks he cannot do it, he never even tries anymore." The elephant was trapped not by the rope, but by his own mind.<br><br><strong>Lesson:</strong> Sometimes, the only thing stopping us from being successful is our own false belief that we cannot do it.`,
-                dictionary: { "curious": "meraklı", "failed": "başarısız oldu", "trapped": "tuzağa düşmüş", "belief": "inanç" }
+                dictionary: { "curious": "meraklı", "surprised": "şaşırmış", "weak": "zayıf", "explained": "açıkladı", "failed": "başarısız oldu", "believes": "inanıyor", "trapped": "tuzağa düşmüş", "successful": "başarılı", "false": "yanlış", "belief": "inanç" }
             },
             { 
                 title: "The Falcon and the King", src: "The Falcon and the King..wav",
                 text: `A powerful King had a favorite hunting falcon. One hot summer day, the King went hunting in the dry forest. He became very thirsty and found a small stream of water dripping from a rock. He filled his golden cup slowly. Just as he was about to drink, the falcon flew down and knocked the cup out of his hand. The King filled the cup again, but again, the falcon attacked it. The third time, the King was so angry that he killed the falcon with his sword. As the bird died, the King looked up at the top of the rock. He saw a huge, dead poisonous snake lying in the water source. The water was toxic! The falcon was trying to save his master’s life. The King cried in deep sadness, but it was too late.<br><br><strong>Lesson:</strong> Never act when you are feeling intense anger. You might destroy something precious that you can never replace.`,
-                dictionary: { "dripping": "damlayan", "poisonous": "zehirli", "intense": "yoğun", "precious": "kıymetli" }
+                dictionary: { "thirsty": "susamış", "dripping": "damlayan", "knocked": "vurdu/düşürdü", "attacked": "saldırdı", "poisonous": "zehirli", "toxic": "zehirli", "sadness": "üzüntü", "intense": "yoğun", "destroy": "yok etmek", "precious": "kıymetli", "replace": "yerine koymak" }
             },
             { 
                 title: "The Fox and the Stork", src: "The Fox and the Stork .wav",
                 text: `A clever fox invited a tall stork to dinner. The fox prepared delicious soup, but he served it on a very flat, shallow plate. The fox quickly licked up the soup, but the stork could not eat anything because her beak was too long. The cruel fox just laughed. The next day, the stork invited the fox for dinner. She prepared wonderful meat, but she served it inside a tall, thin glass jar. The stork ate easily by putting her long beak inside, but the fox could not fit his wide head into the jar. The fox had to go home completely hungry and embarrassed.<br><br><strong>Lesson:</strong> You should always treat other people the exact way you want them to treat you.`,
-                dictionary: { "shallow": "sığ", "cruel": "zalim", "embarrassed": "utanmış", "treat": "davranmak" }
+                dictionary: { "clever": "zeki", "delicious": "lezzetli", "shallow": "sığ", "licked": "yaladı", "cruel": "zalim", "easily": "kolayca", "completely": "tamamen", "embarrassed": "utanmış", "treat": "davranmak", "exact": "tam/kesin" }
             },
             { 
                 title: "The Fox and the Traitor Rooster", src: "The Fox and the Traitor Rooster.wav",
                 text: `A smart farmer built a strong chicken coop. A hungry fox wanted to get inside, but the door was locked. He found a tiny hole and started dropping extra corn through it for one specific rooster every night. Because of this food, the rooster grew big and became the boss of the coop. One night, the fox whispered, "I made you the boss. Now, do me a favor. Open the door from the inside." The rooster felt special and opened the heavy door. The fox rushed in and ate the chickens. Finally, he grabbed the boss rooster. The rooster cried, "Wait! We are friends!" The fox laughed, "Someone who betrays his family for a little corn is no friend."<br><br><strong>Lesson:</strong> Never trust an enemy who brings you gifts. A traitor is never respected, even by the enemy.`,
-                dictionary: { "specific": "belirli", "favor": "iyilik", "betrays": "ihanet eder", "traitor": "hain" }
+                dictionary: { "locked": "kilitli", "specific": "belirli", "whispered": "fısıldadı", "favor": "iyilik", "rushed": "aceleyle girdi", "grabbed": "yakaladı", "betrays": "ihanet eder", "traitor": "hain", "respected": "saygı duyulan" }
             },
             { 
                 title: "The Frogs Who Wanted a King", src: "The Frogs Who Wanted a King..wav",
                 text: `A large family of frogs lived peacefully in a quiet lake. However, they soon thought, "We need a strong King to rule our society." They prayed to the sky gods for a King. The gods laughed and threw a heavy wooden log into the lake. It made a loud splash! The frogs were terrified at first, but the log just floated and did nothing. The frogs got bored and complained, "This King is too lazy! We want a strong, active King!" The gods became angry at their foolishness and sent a large, hungry water snake. The snake immediately became their new King and started eating the frogs one by one.<br><br><strong>Lesson:</strong> Be happy with your peace and freedom. Do not blindly ask for strict masters.`,
-                dictionary: { "peacefully": "huzur içinde", "terrified": "dehşete düşmüş", "foolishness": "aptallık", "strict": "katı" }
+                dictionary: { "peacefully": "huzur içinde", "prayed": "dua ettiler", "terrified": "dehşete düşmüş", "floated": "su yüzeyinde kaldı", "complained": "şikayet ettiler", "active": "aktif", "foolishness": "aptallık", "immediately": "hemen", "blindly": "körü körüne", "strict": "katı" }
             },
             { 
                 title: "The Goose and the Golden Eggs", src: "The Goose and the Golden Eggs..wav",
                 text: `A poor farmer bought a white goose. The next morning, he found a shiny yellow egg in the nest. It was made of pure gold! Every morning, the magical goose laid exactly one golden egg. The farmer quickly became very rich. However, he also became very impatient and greedy. He thought, "This goose must have a huge pile of gold inside its stomach! If I cut it open, I can have all the gold right now." He took a knife and killed the poor goose. But when he opened it, he found nothing. It was just a normal bird inside. The greedy farmer lost his magical bird forever.<br><br><strong>Lesson:</strong> If you are too greedy and want everything immediately, you will destroy the good things you already have.`,
-                dictionary: { "impatient": "sabırsız", "greedy": "açgözlü", "immediately": "hemen", "destroy": "yok etmek" }
+                dictionary: { "shiny": "parlak", "magical": "sihirli", "impatient": "sabırsız", "greedy": "açgözlü", "huge": "kocaman", "normal": "normal/sıradan", "immediately": "hemen", "destroy": "yok etmek" }
             },
             { 
                 title: "The Heron and the Fish", src: "The Heron and the Fish.wav",
                 text: `A tall, elegant heron stood by a quiet pond. He saw many small fish swimming near his feet. "No," the heron thought proudly. "I will not eat such tiny, unimportant fish. I will wait for a large fish fit for a king." Later, a medium-sized perch swam past. The heron looked at it with his nose in the air. "Still not good enough," he said. The sun began to set, and the larger fish moved into the deep water where the heron could not reach them. The small fish also swam away to hide. The proud heron stayed in the water for a long time, but he found nothing else to eat. Finally, the hungry bird had to eat a small, slimy snail from the mud.<br><br><strong>Lesson:</strong> If you are too proud and wait for the perfect opportunity, you might lose the good opportunities you have and end up with nothing.`,
-                dictionary: { "elegant": "zarif", "unimportant": "önemsiz", "slimy": "sümüksü", "opportunity": "fırsat" }
+                dictionary: { "elegant": "zarif", "proudly": "gururla", "unimportant": "önemsiz", "reach": "ulaşmak", "hide": "saklanmak", "slimy": "sümüksü", "proud": "gururlu", "opportunity": "fırsat" }
             },
             { 
                 title: "The Horse and the Loaded Donkey", src: "The Horse and the Loaded Donkey.wav",
                 text: `A proud horse and a tired donkey were traveling with their master. The donkey was carrying a very heavy load of bags, but the horse was carrying nothing but a beautiful saddle. After walking for hours, the donkey felt very weak. He looked at the horse and begged, "Please, friend, take just a small part of my load. If you do not help me, I will certainly die." The horse held his head high and replied, "Why should I help you? I am a noble animal, and I do not carry heavy bags." The donkey said nothing more, but a few miles later, he collapsed and died from exhaustion. The master was very upset. He took all the heavy bags from the dead donkey and put them on the horse's back. Then, he also took the donkey’s heavy skin and placed it on top of the bags. The horse cried, "I was so selfish! By refusing to help, I now have to carry everything alone."<br><br><strong>Lesson:</strong> If you do not help your neighbor with their small burdens, you may eventually have to carry the whole weight yourself.`,
-                dictionary: { "noble": "asil", "collapsed": "yere yığıldı", "exhaustion": "tükenmişlik", "burdens": "yükler" }
+                dictionary: { "tired": "yorgun", "weak": "zayıf", "begged": "yalvardı", "certainly": "kesinlikle", "noble": "asil", "collapsed": "yere yığıldı", "exhaustion": "tükenmişlik", "upset": "üzgün", "selfish": "bencil", "refusing": "reddederek", "burdens": "yükler", "eventually": "sonunda" }
             },
             { 
                 title: "The Horse, the Stag, and the Rider", src: "The Horse, the Stag, and the Rider.wav",
                 text: `A wild horse and a large stag lived in the same meadow. They constantly fought over the sweetest grass. The stag was stronger, so he finally chased the horse away. The horse wanted revenge. He went to a hunter and asked for help. The man said, "I will help you, but you must let me put a metal bit in your mouth and a saddle on your back." The angry horse agreed. The man climbed on the horse, and together they easily chased the stag away. The horse was very happy. He said, "Thank you! Now take this saddle off." The man laughed loudly. "No, my friend. I like riding you." The horse became a slave forever.<br><br><strong>Lesson:</strong> If you are willing to give up your freedom just to get revenge on an enemy, you will ruin your own life.`,
-                dictionary: { "constantly": "sürekli", "revenge": "intikam", "slave": "köle", "ruin": "mahvetmek" }
+                dictionary: { "constantly": "sürekli", "sweetest": "en tatlı", "chased": "kovaladı", "revenge": "intikam", "agreed": "kabul etti", "climbed": "tırmandı", "slave": "köle", "willing": "gönüllü", "freedom": "özgürlük", "ruin": "mahvetmek" }
             },
             { 
                 title: "The Lazy Swallow and the Winter", src: "The Lazy Swallow and the Winter..wav",
                 text: `Summer was ending, and the air was becoming cold. All the birds in the forest started to prepare for their long trip to the warm south. They practiced flying every day to build their strength. However, one young swallow was very lazy. He loved eating delicious flies and napping in the afternoon sun. When the older birds told him it was time to leave, the swallow laughed. "The sun is still warm today," he said. "I want to play for one more week. I am fast, so I will catch up with you later." He ignored his friends and continued to sleep. One morning, the swallow woke up and realized the forest was completely quiet. All the other birds had flown away. Suddenly, a terrible snowstorm arrived. The swallow tried to fly south, but he was not prepared. The freezing wind made his wings stiff and heavy with ice. He was too weak to fight the cold air. Finally, he fell from the sky and landed in a deep, white snowfield, shivering and alone.<br><br><strong>Lesson:</strong> If you are too lazy to prepare for the future, you will not be ready when difficult times arrive.`,
-                dictionary: { "prepare": "hazırlanmak", "ignored": "görmezden geldi", "stiff": "sert/katı", "shivering": "titreyen" }
+                dictionary: { "prepare": "hazırlanmak", "practiced": "pratik yaptılar", "lazy": "tembel", "delicious": "lezzetli", "ignored": "görmezden geldi", "realized": "fark etti", "terrible": "korkunç", "stiff": "sert/katı", "shivering": "titreyen", "difficult": "zor" }
             },
             { 
                 title: "The Lion and the Clever Rabbit", src: "The Lion and the Clever Rabbit.wav",
                 text: `A hungry lion lived in a forest and ate many animals every day. The animals said, "King, if you stop hunting us, we will send one animal to your cave every day for dinner." The lion agreed. One day, it was the rabbit's turn. The rabbit arrived late. The lion was furious. "Why are you late?" he roared. The rabbit whispered, "Another lion stopped me. He said he is the true King." The lion screamed, "Take me to him!" The rabbit led the lion to a deep well. "He is hiding inside," the rabbit said. The lion looked down and saw his own reflection. He thought it was the enemy. He roared, and the reflection "roared" back. The angry lion jumped into the well to attack and drowned.<br><br><strong>Lesson:</strong> Intelligence and quick thinking are much more powerful than physical strength.`,
-                dictionary: { "furious": "öfkeli", "reflection": "yansıma", "drowned": "boğuldu", "intelligence": "zeka" }
+                dictionary: { "hunting": "avlanmak", "agreed": "kabul etti", "furious": "öfkeli", "roared": "kükredi", "whispered": "fısıldadı", "screamed": "çığlık attı", "reflection": "yansıma", "attack": "saldırmak", "drowned": "boğuldu", "intelligence": "zeka", "powerful": "güçlü", "physical": "fiziksel" }
             },
             { 
                 title: "The Lion and the Mouse", src: "The Lion and the Mouse..wav",
                 text: `A huge, sleeping lion caught a tiny mouse under his paw. The terrified mouse cried, "Please don't eat me! If you let me go, I promise I will help you one day." The lion laughed. "How can a tiny mouse help a powerful lion?" But the lion let the mouse go free. A few weeks later, hunters trapped the lion in a strong rope net. The lion roared in fear. The little mouse heard the roar, ran over, and used his sharp teeth to cut the thick ropes, freeing the big lion.<br><br><strong>Lesson:</strong> Kindness is never wasted. Even the smallest and weakest friends can be incredibly valuable.`,
-                dictionary: { "terrified": "dehşete düşmüş", "trapped": "tuzağa düşmüş", "wasted": "boşa gitmiş", "valuable": "değerli" }
+                dictionary: { "terrified": "dehşete düşmüş", "promise": "söz veririm", "powerful": "güçlü", "trapped": "tuzağa düşürdüler", "roared": "kükredi", "sharp": "keskin", "freeing": "serbest bırakarak", "wasted": "boşa gitmiş", "weakest": "en zayıf", "incredibly": "inanılmaz derecede", "valuable": "değerli" }
             },
             { 
                 title: "The Lion and the Painting", src: "The Lion and the Painting..wav",
                 text: `A proud lion and a human traveler were arguing about who was stronger. The man said humans were the strongest, but the lion disagreed. Suddenly, they saw a stone statue showing a strong human hunter killing a massive lion. The man pointed at the statue. "Look! This proves that humans are much stronger than any lion." The lion laughed. "That is not true," the lion replied. "A human artist made this statue to make himself look good. If a lion could build statues, you would see the lion standing on top of the human." The man became very quiet. He realized the truth depends on the artist.<br><br><strong>Lesson:</strong> The story always changes depending on who is telling it. Everyone makes themselves the hero of their own story.`,
-                dictionary: { "arguing": "tartışan", "proves": "kanıtlar", "realized": "fark etti", "depends": "bağlıdır" }
+                dictionary: { "proud": "gururlu", "arguing": "tartışan", "disagreed": "aynı fikirde değildi", "massive": "devasa", "pointed": "işaret etti", "proves": "kanıtlar", "replied": "cevap verdi", "realized": "fark etti", "depends": "bağlıdır", "depending": "bağlı olarak" }
             },
             { 
                 title: "The Lion, the Donkey, and the Fox", src: "The Lion, the Donkey, and the Fox.wav",
                 text: `A lion, a donkey, and a fox went hunting together. They caught a huge amount of food. The lion ordered the donkey to divide the food. The honest donkey divided the food into three equal parts. The lion became furious and killed the donkey. Then, the lion told the fox to divide the food. The clever fox pushed almost all of the food to the lion and kept only a tiny piece for himself. The lion smiled and asked, "Who taught you to divide so well?" The fox answered, "The dead donkey."<br><br><strong>Lesson:</strong> A wise person learns how to survive by carefully watching the fatal mistakes of others.`,
-                dictionary: { "honest": "dürüst", "furious": "öfkeli", "survive": "hayatta kalmak", "fatal": "ölümcül" }
+                dictionary: { "caught": "yakaladılar", "ordered": "emretti", "divide": "bölmek", "honest": "dürüst", "equal": "eşit", "furious": "öfkeli", "clever": "zeki", "taught": "öğretti", "wise": "bilge", "survive": "hayatta kalmak", "carefully": "dikkatlice", "fatal": "ölümcül" }
             },
             { 
                 title: "The Lions and the Divided Herd", src: "The Lions and the Divided Herd .wav",
                 text: `A herd of buffalos lived together in a valley. A group of lions watched them but were afraid to attack because the buffalos were too strong together. The leader of the lions said, "We only want that Yellow Cow. If you give her to us, we promise never to attack the rest of you." The older buffalos warned the others, but the younger ones sent the Yellow Cow to the lions. The lions ate her and stayed quiet. Soon, the lions asked for another buffalo, and then another. Each time, the herd became smaller. Finally, the lions attacked everyone. As the last buffalo died, he cried, "We were defeated the day we gave away the Yellow Cow."<br><br><strong>Lesson:</strong> Unity is your best protection. When a group sacrifices one member to please an enemy, they eventually lose the strength to protect themselves.`,
-                dictionary: { "herd": "sürü", "warned": "uyardı", "defeated": "mağlup edildi", "sacrifices": "feda eder" }
+                dictionary: { "afraid": "korkmuş", "promise": "söz veriyoruz", "warned": "uyardı", "smaller": "daha küçük", "attacked": "saldırdılar", "defeated": "mağlup edildik", "unity": "birlik", "protection": "koruma", "sacrifices": "feda eder", "please": "memnun etmek", "eventually": "sonunda" }
             },
             { 
                 title: "The Little Bird and the Cow", src: "The Little Bird and the Cow..wav",
                 text: `It was a freezing winter day. A small bird was flying, but the air was too cold. Its wings froze, and it fell into a snowy field, slowly dying of cold. Just then, a large brown cow walked past. The cow dropped a big, warm pile of manure right on top of the little bird. At first, the bird was angry. But then, it felt the wonderful heat. The warm manure melted the ice and saved its life! The bird felt so happy that it started to sing a loud song. However, a hungry farm cat heard the happy singing. The cat quickly found the bird inside the manure, pulled it out, and ate it.<br><br><strong>Lesson:</strong> Not everyone who puts you in a bad situation is your enemy, and keeping quiet is often the safest choice.`,
-                dictionary: { "freezing": "dondurucu", "manure": "gübre", "melted": "eritti", "situation": "durum" }
+                dictionary: { "freezing": "dondurucu", "froze": "dondu", "dropped": "düşürdü/bıraktı", "manure": "gübre", "wonderful": "harika", "melted": "eritti", "pulled": "çekti", "situation": "durum", "safest": "en güvenli", "choice": "seçenek" }
             },
             { 
                 title: "The Mice Who Wanted a Bell", src: "The Mice Who Wanted a Bell.wav",
                 text: `A group of mice lived in a big house but were terrified of the house cat. They held a meeting to fix the problem. A young mouse said, "I have a brilliant idea! We will tie a bell around the cat's neck. When the cat walks, we will hear the bell and run away!" All the mice cheered. They thought it was a perfect plan. Then, an old, wise mouse asked, "Yes, it is a fantastic plan. But tell me, who exactly is going to put the bell on the cat?" Everyone suddenly became very quiet.<br><br><strong>Lesson:</strong> It is very easy to make a clever plan, but it is extremely hard to do the dangerous work.`,
-                dictionary: { "terrified": "dehşete düşmüş", "brilliant": "harika/parlak", "cheered": "tezahürat yaptı", "extremely": "son derece" }
+                dictionary: { "terrified": "dehşete düşmüş", "fix": "çözmek/düzeltmek", "brilliant": "harika/parlak", "tie": "bağlamak", "cheered": "tezahürat yaptılar", "wise": "bilge", "fantastic": "mükemmel", "exactly": "tam olarak", "extremely": "son derece", "dangerous": "tehlikeli" }
             },
             { 
                 title: "The Monkey and the Crocodile", src: "The Monkey and the Crocodile.wav",
                 text: `A clever monkey lived in an apple tree next to a river. He often threw apples to a crocodile, and they became friends. However, the crocodile's wife was greedy. She told her husband, "This monkey's heart must be delicious! I want to eat it." The crocodile invited the monkey to his home and carried him on his back. In the middle of the river, the crocodile confessed, "My wife wants to eat your heart." The monkey was terrified but stayed calm. He said, "Oh no! I left my heart back in the tree for safety. Take me back to get it!" The crocodile swam back, and the monkey escaped.<br><br><strong>Lesson:</strong> Stay calm in dangerous situations. A smart mind is your best weapon.`,
-                dictionary: { "greedy": "açgözlü", "confessed": "itiraf etti", "terrified": "dehşete düşmüş", "weapon": "silah" }
+                dictionary: { "threw": "fırlattı", "greedy": "açgözlü", "delicious": "lezzetli", "carried": "taşıdı", "confessed": "itiraf etti", "terrified": "dehşete düşmüş", "calm": "sakin", "escaped": "kaçtı", "dangerous": "tehlikeli", "situations": "durumlar", "weapon": "silah" }
             },
             { 
                 title: "The Mouse, the Frog, and the Hawk", src: "The Mouse, the Frog, and the Hawk.wav",
                 text: `A field mouse and a frog were friends. One day, the playful frog tied the mouse's foot to his own leg with a piece of grass. They walked together looking for food. Suddenly, the frog jumped into a deep pond. The frog loved the water, but the mouse could not swim and drowned. The dead mouse's body floated to the top, still tied to the frog. A hungry hawk saw the dead mouse, flew down, and grabbed it. Because the frog was tied to the mouse, the hawk easily pulled the frog out of the water too, and ate them both.<br><br><strong>Lesson:</strong> If you intentionally drag other people down to hurt them, you will eventually destroy yourself with them.`,
-                dictionary: { "drowned": "boğuldu", "floated": "yüzdü/havada asılı kaldı", "intentionally": "kasten", "drag": "sürüklemek" }
+                dictionary: { "playful": "oyuncu", "tied": "bağladı", "jumped": "zıpladı", "drowned": "boğuldu", "floated": "yüzdü/havada asılı kaldı", "grabbed": "yakaladı", "pulled": "çekti", "intentionally": "kasten", "drag": "sürüklemek", "eventually": "sonunda", "destroy": "yok etmek" }
             },
             { 
                 title: "The Nightingale and the Hawk", src: "The Nightingale and the Hawk.wav",
                 text: `A hungry hawk caught a tiny nightingale. The nightingale begged, "Please let me go. I am so small. You should wait for a bigger bird." The hawk shook his head. "I would be very foolish to listen to you," the hawk said. "I have you in my claws right now. If I let you go, I might find nothing else. A small bird in my claw is much better than a large bird that is still flying in the sky." The hawk did not listen to the nightingale’s words and ate his meal. He knew that the future is never certain, but the present is real.<br><br><strong>Lesson:</strong> Do not give up something certain that you already have for the promise of something better that you might never find.`,
-                dictionary: { "begged": "yalvardı", "foolish": "aptalca", "certain": "kesin", "promise": "söz/vaat" }
+                dictionary: { "caught": "yakaladı", "begged": "yalvardı", "shook": "salladı", "foolish": "aptalca", "claws": "pençeler", "certain": "kesin", "present": "şimdiki zaman", "promise": "söz/vaat" }
             },
             { 
                 title: "The Oak Tree and the Reed", src: "The Oak Tree and the Reed.wav",
                 text: `A strong oak tree stood next to a fast river. Near its roots, some thin reeds were growing. The arrogant oak tree said, "I am so powerful. I never bend for the wind. You poor reeds are weak; you bow down to every small breeze." That night, a violent storm arrived. The oak tree stubbornly fought the wind, but its trunk broke and it crashed down. The soft reeds simply bent flat to the ground with the wind. When the storm passed, the flexible reeds stood back up again safely.<br><br><strong>Lesson:</strong> Sometimes, being flexible and bending is much better than being hard, proud, and stubborn.`,
-                dictionary: { "arrogant": "kibirli", "stubbornly": "inatla", "flexible": "esnek", "stubborn": "inatçı" }
+                dictionary: { "arrogant": "kibirli", "powerful": "güçlü", "bend": "eğilmek", "violent": "şiddetli", "stubbornly": "inatla", "crashed": "yıkıldı", "flexible": "esnek", "proud": "gururlu", "stubborn": "inatçı" }
             },
             { 
                 title: "The Old Dog and the Hole", src: "The Old Dog and the Hole .wav",
                 text: `An old farm dog fell into a deep, dry hole. The farmer thought the dog was too old to save, so he decided to bury the dog there. He began to throw dirt into the hole. When the first shovel of dirt hit the dog's back, it was terrified. But then, the dog had a smart idea. Every time dirt landed on him, he would shake it off and step on top of it. Slowly, the pile of dirt grew higher. Finally, the dog reached the top of the hole and jumped out. The farmer was amazed that the dirt he used to bury the dog was actually what saved him.<br><br><strong>Lesson:</strong> When life throws problems at you, shake them off and use them as a step to climb higher.`,
-                dictionary: { "bury": "gömmek", "terrified": "dehşete düşmüş", "amazed": "şaşırmış", "climb": "tırmanmak" }
+                dictionary: { "decided": "karar verdi", "bury": "gömmek", "throw": "fırlatmak/atmak", "terrified": "dehşete düşmüş", "shake": "silkelemek", "reached": "ulaştı", "amazed": "şaşırmış", "climb": "tırmanmak" }
             },
             { 
                 title: "The Old Lion and the Footprints", src: "The Old Lion and the Footprints.wav",
                 text: `An old, weak lion could no longer hunt, so he made a plan. He went into his dark cave and pretended to be very sick. Many animals felt sorry for the king and went inside to visit him. As soon as they entered, the lion ate them. A smart fox stayed outside safely. He called out, "How are you feeling today, King?" The lion answered, "I am very sick. Please, come inside." The fox looked at the ground and smiled. "No, thank you," the fox said. "I can see many footprints going into your cave, but I do not see any footprints coming out."<br><br><strong>Lesson:</strong> Always observe your surroundings carefully. A smart person learns from the obvious mistakes of others.`,
-                dictionary: { "pretended": "numara yaptı", "footprints": "ayak izleri", "observe": "gözlemlemek", "obvious": "açık/bariz" }
+                dictionary: { "pretended": "numara yaptı", "sick": "hasta", "entered": "girdiler", "safely": "güvenle", "footprints": "ayak izleri", "observe": "gözlemlemek", "surroundings": "çevre", "carefully": "dikkatlice", "obvious": "açık/bariz", "mistakes": "hatalar" }
             },
             { 
                 title: "The Old Man and the Scorpion", src: "The Old Man and the Scorpion .wav",
                 text: `A wise old man saw a scorpion struggling in a river. He reached out to save it, but the scorpion stung his hand. A minute later, he tried again, and the scorpion stung him a second time. A traveler shouted, "Why do you keep trying to save that creature? It is only going to sting you!" The old man replied, "It is the scorpion's nature to sting. But it is my nature to be kind. Why should I let his bad nature change my good nature?" He used a long leaf to pull the scorpion out safely.<br><br><strong>Lesson:</strong> Do not let the bad behavior of others change your good character. Stay true to yourself.`,
-                dictionary: { "struggling": "çabalayan", "creature": "yaratık", "nature": "doğa/huy", "character": "karakter" }
+                dictionary: { "wise": "bilge", "struggling": "çabalayan", "reached": "uzandı", "stung": "soktu", "shouted": "bağırdı", "creature": "yaratık", "replied": "cevap verdi", "nature": "doğa/huy", "behavior": "davranış", "character": "karakter" }
             },
             { 
                 title: "The Peacock and the Crane", src: "The Peacock and the Crane .wav",
                 text: `A peacock was showing his colorful feathers to a gray crane. "Look at me!" the peacock boasted. "I am covered in gold and purple. You are so ugly and dusty." The crane spread his wings and flew into the clouds. He looked down and shouted, "It is true that your feathers are beautiful. But you stay on the ground like a chicken. I may be gray, but my wings carry me to the stars. I prefer my freedom to your beauty." The peacock stayed on the ground, feeling very small.<br><br><strong>Lesson:</strong> Usefulness and freedom are much more valuable than physical beauty. Do not look down on others.`,
-                dictionary: { "boasted": "böbürlendi", "dusty": "tozlu", "prefer": "tercih etmek", "valuable": "değerli" }
+                dictionary: { "colorful": "renkli", "boasted": "böbürlendi", "covered": "kaplı", "dusty": "tozlu", "spread": "açtı/yaydı", "prefer": "tercih etmek", "freedom": "özgürlük", "usefulness": "kullanışlılık", "valuable": "değerli", "physical": "fiziksel" }
             },
             { 
                 title: "The Peasant and the Snake", src: "The Peasant and the Snake.wav",
                 text: `A long time ago, a poor peasant and a snake were very good friends. The snake lived in a dark hole near the man's small house. Every morning, the peasant brought a fresh bowl of milk for the snake. In return, the snake brought a shiny gold coin for the man. One day, the peasant had to go on a long trip. He told his son, "Please give milk to the snake every day." But the son was very greedy. He thought, "This snake must have a stomach full of gold coins! I will kill it and take all the money." The next morning, the son tried to kill the snake with a heavy rock. He missed its head and only cut off its long tail. The snake was furious. It bit the son with its poisonous teeth, and the son died. When the sad father returned, he cried. He went to the hole and said, "Let's be friends again." The snake answered, "No. While I have the pain of my lost tail, and you have the pain of your lost son, we can never be friends."<br><br><strong>Lesson:</strong> Some actions cause permanent damage. You cannot easily fix a broken trust.`,
-                dictionary: { "peasant": "köylü", "greedy": "açgözlü", "furious": "öfkeli", "permanent": "kalıcı" }
+                dictionary: { "peasant": "köylü", "shiny": "parlak", "greedy": "açgözlü", "missed": "kaçırdı", "furious": "öfkeli", "poisonous": "zehirli", "pain": "acı", "actions": "eylemler", "permanent": "kalıcı", "damage": "hasar", "trust": "güven" }
             },
             { 
                 title: "The Peasant Woman and the Mongoose", src: "The Peasant Woman and the Mongoose .wav",
                 text: `A peasant woman found a small, orphaned mongoose in the forest. Her neighbors warned her, "Be careful! That animal naturally preys on birds. One day, he will eat all your chickens." But the woman was kind and did not listen. She fed the mongoose and kept him near her chicken coop. The mongoose grew fast and became very loyal. One afternoon, the woman went to the market. When she returned, she saw the mongoose standing by the gate. His mouth was covered in fresh, red blood. The woman panicked. "My neighbors were right!" she screamed. "You have killed my chickens!" In a fit of rage, she grabbed a heavy shovel and killed the mongoose with one blow. Then, she ran to the coop. To her shock, all her chickens were alive and safe. In the corner of the coop, she saw a massive, poisonous snake torn to pieces. She realized the mongoose had fought the snake to protect her farm. She sat on the ground and cried for her brave friend.<br><br><strong>Lesson:</strong> Never judge a situation based only on what you see at first. Wait to find the truth before you act in anger.`,
-                dictionary: { "orphaned": "yetim kalmış", "loyal": "sadık", "panicked": "panikledi", "judge": "yargılamak" }
+                dictionary: { "orphaned": "yetim kalmış", "warned": "uyardı", "loyal": "sadık", "panicked": "panikledi", "screamed": "çığlık attı", "rage": "öfke/hiddet", "grabbed": "kaptı", "massive": "devasa", "realized": "fark etti", "protect": "korumak", "brave": "cesur", "judge": "yargılamak", "situation": "durum" }
             },
             { 
                 title: "The Scorpion and the Frog", src: "The Scorpion and the Frog.wav",
                 text: `A wildfire started in a forest. A scorpion and a frog reached a deep river. The scorpion said, "Mr. Frog, please carry me on your back." The frog said, "No! You will sting me." The scorpion laughed, "If I sting you, we will both drown." The frog agreed to help. In the middle of the river, the frog felt a sharp pain. The scorpion stung him! As they both started to sink, the dying frog cried, "Why did you do it?" The scorpion answered, "I am sorry. It is just my true nature."<br><br><strong>Lesson:</strong> People cannot easily change their true nature, even when it destroys them.`,
-                dictionary: { "wildfire": "orman yangını", "sting": "sokmak", "drown": "boğulmak", "destroys": "yok eder" }
+                dictionary: { "wildfire": "orman yangını", "reached": "ulaştılar", "sting": "sokmak", "drown": "boğulmak", "agreed": "kabul etti", "sharp": "keskin", "sink": "batmak", "nature": "doğa/huy", "easily": "kolayca", "destroys": "yok eder" }
             },
             { 
                 title: "The Silent Elephant and the Noise", src: "The Silent Elephant and the Noise.wav",
                 text: `A group of monkeys often teased an old, silent elephant. "Why are you so slow and stupid?" they laughed. The elephant never replied. One day, a huge storm arrived. The wind was so strong that it started to blow the monkeys out of the trees. The elephant walked into the middle of the wind and blocked the storm with his massive body. The monkeys hid behind him and were safe. When the storm finished, the elephant walked away without saying a word. He did not need to speak; his actions told the monkeys everything about strength.<br><br><strong>Lesson:</strong> Real power and wisdom do not need to make noise. Silent strength is often the most reliable.`,
-                dictionary: { "teased": "alay etti", "massive": "devasa", "wisdom": "bilgelik", "reliable": "güvenilir" }
+                dictionary: { "teased": "alay etti", "silent": "sessiz", "stupid": "aptal", "replied": "cevap verdi", "blocked": "engelledi", "massive": "devasa", "strength": "güç", "power": "güç/kudret", "wisdom": "bilgelik", "reliable": "güvenilir" }
             },
             { 
                 title: "The Snake and the Steel File", src: "The Snake and the Steel File .wav",
                 text: `A hungry snake slithered into a blacksmith's shop and bit a steel file. The steel was hard, and the snake's mouth started to bleed. But the snake was angry. It thought, "I am making my enemy bleed!" So, the furious snake bit the steel harder and harder. The metal file was fine, but the snake destroyed its own mouth and died from its own blind anger.<br><br><strong>Lesson:</strong> When you blindly attack things that are much stronger than you out of pure anger, you only destroy yourself.`,
-                dictionary: { "slithered": "sürünerek ilerledi", "furious": "öfkeli", "destroyed": "yok etti", "blindly": "körü körüne" }
+                dictionary: { "slithered": "sürünerek ilerledi", "bleed": "kanamak", "furious": "öfkeli", "destroyed": "yok etti", "blind": "kör", "blindly": "körü körüne", "attack": "saldırmak", "pure": "saf/katıksız" }
             },
             { 
                 title: "The Spider and the Flattered Fly", src: "The Spider and the Flattered Fly.wav",
                 text: `A clever spider invited a fly into his web. The fly was smart and said, "No, everyone who goes in there dies." The spider changed his plan. He said, "You are so clever! And your wings are so shiny! You are the most beautiful bug in the world. I just want to look at your beauty." The foolish fly loved the sweet compliments. She forgot the danger, flew closer to hear more nice words, and got stuck in the deadly web.<br><br><strong>Lesson:</strong> Flattery is a dangerous trap. People will use sweet words to feed your ego and destroy you.`,
-                dictionary: { "clever": "zeki", "foolish": "aptalca", "compliments": "iltifatlar", "flattery": "dalkavukluk" }
+                dictionary: { "clever": "zeki", "invited": "davet etti", "shiny": "parlak", "foolish": "aptalca", "compliments": "iltifatlar", "forgot": "unuttu", "deadly": "ölümcül", "flattery": "dalkavukluk", "dangerous": "tehlikeli", "destroy": "yok etmek" }
             },
             { 
                 title: "The Tiger and the Smart Fox", src: "The Tiger and the Smart Fox .wav",
                 text: `A hungry tiger caught a fox. The fox said, "You cannot eat me! I am the magical King of this forest. Walk behind me, and I will prove it." The tiger followed him. As they walked, all the smaller animals saw them and ran away in terror. The silly tiger thought the animals were running from the fox, but they were actually running from the tiger! The tiger quickly apologized and let the fox go free.<br><br><strong>Lesson:</strong> Do not be fooled by illusions. Some people use the power of the people standing behind them to look strong.`,
-                dictionary: { "prove": "kanıtlamak", "terror": "dehşet", "apologized": "özür diledi", "illusions": "yanılsamalar" }
+                dictionary: { "caught": "yakaladı", "magical": "sihirli", "prove": "kanıtlamak", "followed": "takip etti", "terror": "dehşet", "actually": "aslında", "apologized": "özür diledi", "fooled": "kandırılmak", "illusions": "yanılsamalar" }
             },
             { 
                 title: "The Tiger and the Woodpecker", src: "The Tiger and the Woodpecker .wav",
                 text: `A tiger was eating when a bone got stuck in his teeth. He asked a woodpecker for help. "If you pull the bone out, I will give you a big reward," said the tiger. The brave bird did it and successfully saved the tiger from the pain. Later, the bird asked for the reward. The cruel tiger laughed and said, "You put your small head inside a hungry tiger's mouth, and I did not eat you. That is your reward! Now go away."<br><br><strong>Lesson:</strong> Do not expect toxic or bad people to be thankful when you do them a favor.`,
-                dictionary: { "reward": "ödül", "successfully": "başarıyla", "cruel": "zalim", "expect": "beklemek" }
+                dictionary: { "stuck": "sıkıştı/takıldı", "reward": "ödül", "brave": "cesur", "successfully": "başarıyla", "saved": "kurtardı", "cruel": "zalim", "expect": "beklemek", "toxic": "zehirli", "thankful": "minnettar", "favor": "iyilik" }
             },
             { 
                 title: "The Turtle and the Scorpion", src: "The Turtle and the Scorpion..wav",
                 text: `A turtle and a scorpion were friends and needed to cross a river. The scorpion sat on the turtle's back. In the middle of the river, the turtle heard a scratching noise on his shell. The turtle asked, "What are you doing?" The scorpion answered, "I am trying to sting your shell. It is my nature." The turtle realized his friend was dangerous. The turtle said, "Well, it is my nature to dive under the water to protect myself." He dived, and the scorpion washed away.<br><br><strong>Lesson:</strong> If someone shows you they are toxic, protect yourself and let them go.`,
-                dictionary: { "scratching": "tırmalama", "sting": "sokmak", "realized": "fark etti", "protect": "korumak" }
+                dictionary: { "cross": "karşıya geçmek", "scratching": "tırmalama", "sting": "sokmak", "nature": "doğa/huy", "realized": "fark etti", "dangerous": "tehlikeli", "protect": "korumak", "toxic": "zehirli" }
             },
             { 
                 title: "The Turtle and the Two Geese", src: "The Turtle and the Two Geese..wav",
                 text: `A friendly turtle talked way too much. Two geese offered to help him fly to a better lake. They said, "Bite the middle of this stick, and we will fly. But you must keep your mouth shut!" The turtle bit the stick, and they flew into the sky. People on the ground saw them and shouted, "Look at the funny flying turtle!" The proud turtle became angry. He opened his mouth to shout, "Be quiet!" but he immediately fell to the ground and died.<br><br><strong>Lesson:</strong> Knowing exactly when to keep your mouth shut can save your life.`,
-                dictionary: { "offered": "teklif etti", "proud": "gururlu", "immediately": "hemen", "exactly": "tam olarak" }
+                dictionary: { "friendly": "arkadaş canlısı", "offered": "teklif etti", "shouted": "bağırdı", "proud": "gururlu", "angry": "kızgın", "immediately": "hemen", "exactly": "tam olarak" }
             },
             { 
                 title: "The Two Dogs", src: "The Two Dogs..wav",
                 text: `A grandfather was watching two dogs in the yard. One was black, and the other was white. They were fighting each other loudly. The grandfather explained to his grandson, "The white dog represents all our good feelings: love and kindness. The black dog represents our bad feelings: anger and hate. These two sides are always fighting inside our hearts." The little boy asked, "Which dog is going to win?" The old man answered, "The one that I feed better will win."<br><br><strong>Lesson:</strong> We choose who we become by the thoughts and actions we feed.`,
-                dictionary: { "represents": "temsil eder", "kindness": "nezaket", "choose": "seçmek", "actions": "eylemler" }
+                dictionary: { "loudly": "yüksek sesle", "explained": "açıkladı", "represents": "temsil eder", "feelings": "hisler", "kindness": "nezaket", "anger": "öfke", "choose": "seçmek", "actions": "eylemler" }
             },
             { 
                 title: "The Two Frogs and the Milk", src: "The Two Frogs and the Milk..wav",
                 text: `Two frogs fell into a bucket of milk. The first frog became hopeless. He cried, "This is impossible!" He stopped swimming and drowned. The second frog refused to give up. He kicked his legs and swam in circles for hours. Because of his movement, the milk began to change. The cream turned into solid butter! Soon, the frog was standing on a hard piece of butter. He used the solid surface to jump out of the bucket and was safe.<br><br><strong>Lesson:</strong> Persistence is the key to survival. Your hard work can turn a difficult problem into a solution.`,
-                dictionary: { "hopeless": "umutsuz", "drowned": "boğuldu", "refused": "reddetti", "persistence": "azim/kararlılık" }
+                dictionary: { "hopeless": "umutsuz", "impossible": "imkansız", "drowned": "boğuldu", "refused": "reddetti", "solid": "katı", "surface": "yüzey", "persistence": "azim/kararlılık", "survival": "hayatta kalma", "difficult": "zor", "solution": "çözüm" }
             },
             { 
                 title: "The Two Roosters and the Eagle", src: "The Two Roosters and the Eagle ..wav",
                 text: `Two roosters lived on a farm and fought for the farmyard. The winner, full of pride, flew to the top of a stone wall. He flapped his wings and crowed loudly to tell everyone about his great victory. However, a hungry eagle heard the loud crowing and saw the boastful rooster standing alone on the wall. In a second, the eagle dropped like a stone, grabbed the winner in his sharp claws, and carried him away to be eaten. The rooster who had lost the fight came out of his dark corner and became the master of the farmyard.<br><br><strong>Lesson:</strong> Pride often leads to a sudden fall. When you are successful, stay humble, or your own noise might attract your enemy.`,
-                dictionary: { "pride": "gurur", "victory": "zafer", "boastful": "övüngen", "humble": "mütevazı" }
+                dictionary: { "pride": "gurur", "victory": "zafer", "boastful": "övüngen", "grabbed": "yakaladı", "sharp": "keskin", "sudden": "ani", "successful": "başarılı", "humble": "mütevazı", "attract": "çekmek" }
             },
             { 
                 title: "The Two Seeds", src: "The Two Seeds..wav",
                 text: `Two small seeds lay side by side in the dark earth during the early spring. The first seed was very brave. "I want to grow!" she said. "I want to push my roots deep and see the beautiful world above the soil. I want to feel the warm sun on my face and bloom." The second seed was very shy and cautious. "I am afraid," he replied. "If I push my head into the air, a big bird might eat me. If I grow a flower, someone might pull me out of the ground. It is much safer to stay here in the dark where it is quiet." The first seed pushed through the dirt. Soon, she became a tall, strong plant with many green leaves. Meanwhile, the second seed stayed hidden under the soil, waiting for a safe time that never came. One afternoon, a hungry chicken walked through the garden. The sun was hot, so the chicken stopped to rest in the shadow of the tall plant. While sitting there, the chicken scratched the dirt. It found the cautious seed and ate it for lunch.<br><br><strong>Lesson:</strong> If you refuse to grow because you are afraid, you will be destroyed by the world anyway. Taking a risk to grow is often safer than doing nothing.`,
-                dictionary: { "brave": "cesur", "cautious": "temkinli", "scratched": "kazıdı", "refuse": "reddetmek" }
+                dictionary: { "brave": "cesur", "bloom": "çiçek açmak", "shy": "utangaç", "cautious": "temkinli", "afraid": "korkmuş", "hidden": "gizli", "scratched": "kazıdı", "refuse": "reddetmek", "destroyed": "yok edilmiş", "risk": "risk" }
             },
             { 
                 title: "The Warrior and the Loyal Wolf", src: "The Warrior and the Loyal Wolf..wav",
                 text: `A brave warrior found an orphaned wolf cub and raised it as his best friend. Despite the tribe's warnings, the animal grew up very loyal. One day, the warrior had to leave his newborn baby alone and left the wolf to guard the tipi. When he returned, he saw the wolf outside with blood on its mouth and the baby's cradle pushed over. In a fit of rage, the warrior grabbed his gun and shot the wolf. As the wolf died, the warrior heard his baby crying. He ran inside and saw his child sleeping safely on the floor. Next to the cradle lay a massive, dead puma. The wolf had fought the predator to save the baby's life. The warrior cried as he realized he had killed his most loyal protector.<br><br><strong>Lesson:</strong> Do not let anger blind your judgment. What looks like a betrayal might actually be a sacrifice.`,
-                dictionary: { "loyal": "sadık", "rage": "öfke/hiddet", "betrayal": "ihanet", "sacrifice": "fedakarlık" }
+                dictionary: { "orphaned": "yetim kalmış", "warnings": "uyarılar", "loyal": "sadık", "guard": "korumak/nöbet tutmak", "rage": "öfke/hiddet", "grabbed": "kaptı", "massive": "devasa", "predator": "yırtıcı", "realized": "fark etti", "protector": "koruyucu", "blind": "körü körüne", "judgment": "yargı", "betrayal": "ihanet", "sacrifice": "fedakarlık" }
             },
             { 
                 title: "The Wolf and the Lamb", src: "The Wolf and the Lamb..wav",
                 text: `A hungry wolf saw a small lamb drinking water at a stream. The wolf shouted, "How dare you make my water dirty?" The lamb trembled and said, "Sir, I am drinking downstream from you. I cannot make your water dirty." The wolf was angry because the lamb was right. He tried another lie. "Last year, you said terrible things about my father!" The lamb cried, "Sir, I was not even born last year!" Finally, the wolf hissed, "I do not care about your logic. I am hungry, and you are dinner." He jumped on the lamb and ate him.<br><br><strong>Lesson:</strong> A wicked person will always find an excuse for their evil actions, even if your logic is perfect. Sometimes, truth cannot stop a predator.`,
-                dictionary: { "trembled": "titredi", "logic": "mantık", "wicked": "kötü/zalim", "excuse": "bahane" }
+                dictionary: { "dirty": "kirli", "trembled": "titredi", "angry": "kızgın", "terrible": "korkunç", "logic": "mantık", "wicked": "kötü/zalim", "excuse": "bahane", "evil": "kötü", "actions": "eylemler", "perfect": "kusursuz", "predator": "yırtıcı" }
             },
             { 
                 title: "The Wolf in Sheep’s Clothing", src: "The Wolf in Sheep’s Clothing..wav",
                 text: `A hungry, clever wolf could not catch any sheep because the smart shepherd watched the flock closely. One day, the wolf found a sheep’s skin and put it over his own body. He walked into the group of sheep. The busy shepherd thought he was a real sheep and locked him securely in the pen for the night. The wolf planned to eat a fat sheep in the dark. But that night, the shepherd suddenly wanted fresh meat for his own dinner. He went into the dark pen, grabbed the first "sheep" he saw, and killed it. It was the disguised wolf.<br><br><strong>Lesson:</strong> Pretending to be someone else to do bad things will eventually destroy you.`,
-                dictionary: { "shepherd": "çoban", "securely": "güvenli bir şekilde", "disguised": "kılık değiştirmiş", "pretending": "numara yapmak" }
+                dictionary: { "clever": "zeki", "shepherd": "çoban", "closely": "yakından", "securely": "güvenli bir şekilde", "planned": "planladı", "suddenly": "aniden", "grabbed": "yakaladı", "disguised": "kılık değiştirmiş", "pretending": "numara yapmak", "eventually": "sonunda", "destroy": "yok etmek" }
             },
             { 
                 title: "The Woodcutter and the Trees", src: "The Woodcutter and the Trees..wav",
                 text: `A poor woodcutter went deep into the quiet forest. He had an axe head, but he did not have a wooden handle for it. He politely asked the trees, "Please, give me just a small piece of strong wood to make a handle for my tool." The kind trees felt sorry for the man. They gave him a nice, strong piece of ash wood. The woodcutter quickly fixed his axe. Then, he immediately started swinging his sharp axe to cut down all the beautiful trees in the forest. The generous trees realized their terrible mistake far too late.<br><br><strong>Lesson:</strong> Be extremely careful who you help. You might be handing your enemy the exact weapon they need to destroy you.`,
-                dictionary: { "politely": "kibarca", "generous": "cömert", "extremely": "son derece", "weapon": "silah" }
+                dictionary: { "politely": "kibarca", "fixed": "tamir etti", "immediately": "hemen", "swinging": "sallamaya", "sharp": "keskin", "generous": "cömert", "realized": "fark ettiler", "terrible": "korkunç", "mistake": "hata", "extremely": "son derece", "exact": "tam/kesin", "weapon": "silah", "destroy": "yok etmek" }
             }
         ];
 
@@ -891,6 +892,7 @@
                 nowPlayingArtist.textContent = "Listening Practice";
                 npArt.style.display = "block";
                 
+                // Update transcript box with the CUSTOM dictionary
                 transcriptTitle.textContent = track.title;
                 transcriptText.innerHTML = formatTranscriptWithDict(track.text, track.dictionary);
             }
@@ -960,9 +962,9 @@
             }
         });
 
-        // UPDATED Dictionary Click Event
+        // Dictionary Click Event
         transcriptText.addEventListener('click', function(e) {
-            const target = e.target.closest('.dict-word'); // Ensures we grab the right element even if inner spans are clicked
+            const target = e.target.closest('.dict-word');
             if (target) {
                 if (target.classList.contains('active')) {
                     target.classList.remove('active');
@@ -971,7 +973,7 @@
                     target.classList.add('active');
                     const enWord = target.getAttribute('data-en');
                     const trWord = target.getAttribute('data-tr');
-                    // Wraps the words in our new neon classes
+                    // Wraps the words in our neon classes
                     target.innerHTML = `<span class="neon-en">${enWord}</span> <span class="neon-tr">[${trWord}]</span>`;
                 }
             }

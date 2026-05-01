@@ -3,113 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Fables</title>
+    <title>Audio Library - Fables</title>
     <style>
         :root {
-            --bg-base: #121212;
-            --bg-elevated: #282828;
-            --text-base: #b3b3b3;
-            --text-highlight: #ffffff;
-            --accent: #1db954; /* Spotify Green */
+            --spotify-black: #000000;
+            --spotify-base: #121212;
+            --spotify-elevated: #1a1a1a;
+            --spotify-highlight: #2a2a2a;
+            --spotify-text-dim: #a7a7a7;
+            --spotify-text-bright: #ffffff;
+            --spotify-green: #1db954;
+            --spotify-green-hover: #1ed760;
+            --playlist-color: #4a6fa5; /* A nice calming blue gradient base */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-base);
-            color: var(--text-base);
+            background-color: var(--spotify-black);
+            color: var(--spotify-text-bright);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 240px;
+            background-color: var(--spotify-black);
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            padding: 24px;
         }
 
-        /* Main Content */
-        .content {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-            padding-bottom: 120px; /* Space for the bottom player */
-            background: linear-gradient(to bottom, #2b2b2b, var(--bg-base) 30%);
-        }
-
-        h1 {
-            color: var(--text-highlight);
-            font-size: 2.5rem;
+        .sidebar h2 {
+            font-size: 14px;
+            color: var(--spotify-text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 20px;
         }
 
-        .track-list {
-            list-style: none;
-            width: 100%;
-            max-width: 800px;
+        .nav-link {
+            color: var(--spotify-text-dim);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--spotify-text-bright);
+        }
+
+        .nav-link.active {
+            color: var(--spotify-text-bright);
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #282828;
+            margin: 10px 0 20px 0;
+        }
+
+        /* --- MAIN CONTENT AREA --- */
+        .main-view {
+            flex: 1;
+            background-color: var(--spotify-base);
+            border-radius: 8px;
+            margin: 8px 8px 98px 0; /* Leaves room for bottom player */
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* Playlist Header */
+        .playlist-header {
+            padding: 40px 30px;
+            display: flex;
+            align-items: flex-end;
+            background: linear-gradient(transparent 0, rgba(0,0,0,.5) 100%), var(--playlist-color);
+        }
+
+        .playlist-cover {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #2b4162 0%, #fa9c7a 100%);
+            box-shadow: 0 4px 60px rgba(0,0,0,.5);
+            margin-right: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .playlist-info p {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .playlist-info h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .playlist-info .description {
+            color: var(--spotify-text-dim);
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        /* Action Bar (Play Button) */
+        .action-bar {
+            padding: 24px 30px;
+            background: linear-gradient(rgba(0,0,0,.6) 0, var(--spotify-base) 100%);
+            display: flex;
+            align-items: center;
+        }
+
+        .big-play-btn {
+            width: 56px;
+            height: 56px;
+            background-color: var(--spotify-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            padding-left: 5px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .big-play-btn:hover {
+            background-color: var(--spotify-green-hover);
+            transform: scale(1.05);
+        }
+
+        /* Track List */
+        .track-list-container {
+            padding: 0 30px 40px 30px;
+        }
+
+        .track-list-header {
+            display: grid;
+            grid-template-columns: 40px 1fr 150px;
+            padding: 5px 16px;
+            border-bottom: 1px solid #282828;
+            color: var(--spotify-text-dim);
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
         }
 
         .track-item {
-            display: flex;
+            display: grid;
+            grid-template-columns: 40px 1fr 150px;
             align-items: center;
-            padding: 12px 15px;
+            padding: 10px 16px;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.2s;
-            margin-bottom: 4px;
+            color: var(--spotify-text-dim);
         }
 
         .track-item:hover {
-            background-color: var(--bg-elevated);
+            background-color: var(--spotify-highlight);
+            color: var(--spotify-text-bright);
         }
 
-        .track-item.active {
-            color: var(--accent);
+        .track-item.playing {
+            color: var(--spotify-green);
+        }
+
+        .track-item.playing .track-title {
+            color: var(--spotify-green);
         }
 
         .track-number {
-            width: 40px;
-            text-align: right;
-            margin-right: 20px;
             font-variant-numeric: tabular-nums;
+            font-size: 14px;
+        }
+
+        /* Hover effect to show play triangle instead of number */
+        .track-item:hover .track-number {
+            display: none;
+        }
+        .track-item:hover::before {
+            content: "▶";
+            width: 40px;
+            color: var(--spotify-text-bright);
+            font-size: 12px;
+            display: block;
+        }
+
+        .track-info {
+            display: flex;
+            flex-direction: column;
         }
 
         .track-title {
-            flex: 1;
-            color: var(--text-highlight);
-            font-size: 1.1rem;
+            color: var(--spotify-text-bright);
+            font-size: 16px;
+            margin-bottom: 4px;
         }
 
-        .track-item.active .track-title {
-            color: var(--accent);
+        .track-artist {
+            font-size: 13px;
         }
 
-        /* Bottom Player */
+        .track-album {
+            font-size: 14px;
+        }
+
+        /* --- BOTTOM PLAYER --- */
         .player-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 90px;
-            background-color: #181818;
-            border-top: 1px solid #282828;
+            background-color: var(--spotify-black);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 16px;
+            border-top: 1px solid #282828;
+            z-index: 100;
         }
 
-        .now-playing {
+        /* Left side of player */
+        .now-playing-section {
             width: 30%;
-            color: var(--text-highlight);
-            font-weight: bold;
-            font-size: 1.1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
         }
 
-        .controls-container {
+        .now-playing-art {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #2b4162 0%, #fa9c7a 100%);
+            margin-right: 14px;
+            border-radius: 4px;
+        }
+
+        .now-playing-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .np-title {
+            color: var(--spotify-text-bright);
+            font-size: 14px;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .np-artist {
+            color: var(--spotify-text-dim);
+            font-size: 12px;
+        }
+
+        /* Center controls */
+        .controls-section {
             width: 40%;
             display: flex;
             flex-direction: column;
@@ -119,80 +289,142 @@
         .buttons {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
             margin-bottom: 8px;
         }
 
         .control-btn {
             background: none;
             border: none;
-            color: var(--text-base);
-            font-size: 1.5rem;
+            color: var(--spotify-text-dim);
+            font-size: 16px;
             cursor: pointer;
+            transition: color 0.2s;
         }
 
         .control-btn:hover {
-            color: var(--text-highlight);
+            color: var(--spotify-text-bright);
         }
 
         .play-pause-btn {
-            background-color: var(--text-highlight);
-            color: #000;
-            width: 45px;
-            height: 45px;
+            background-color: var(--spotify-text-bright);
+            color: var(--spotify-black);
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            padding-left: 4px; /* visually centers the play triangle */
+            font-size: 14px;
+            padding-left: 3px;
         }
         
         .play-pause-btn.playing {
-            padding-left: 0; /* resets for pause icon */
+            padding-left: 0;
+        }
+
+        .play-pause-btn:hover {
+            transform: scale(1.05);
+            color: var(--spotify-black);
         }
 
         .progress-container {
             display: flex;
             align-items: center;
             width: 100%;
-            gap: 10px;
-            font-size: 0.8rem;
+            max-width: 600px;
+            gap: 8px;
+            font-size: 11px;
+            color: var(--spotify-text-dim);
         }
 
         .progress-bar {
             flex: 1;
-            height: 5px;
+            height: 4px;
             background-color: #535353;
             border-radius: 2px;
             cursor: pointer;
+            position: relative;
         }
 
         .progress-fill {
             height: 100%;
-            background-color: var(--text-highlight);
+            background-color: var(--spotify-text-bright);
             border-radius: 2px;
             width: 0%;
         }
 
         .progress-bar:hover .progress-fill {
-            background-color: var(--accent);
+            background-color: var(--spotify-green);
+        }
+        
+        /* Right side (Empty for symmetry, like volume in real app) */
+        .right-section {
+            width: 30%;
         }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <h1>61 Fables Audio Library</h1>
-        <ul class="track-list" id="track-container">
-            <!-- Tracks injected by JavaScript -->
-        </ul>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="nav-link active">Home</a>
+        <a class="nav-link">Search</a>
+        <a class="nav-link">Your Library</a>
+        
+        <div class="divider"></div>
+        
+        <h2>Playlists</h2>
+        <a class="nav-link">Liked Lessons</a>
+        <a class="nav-link">Module 1</a>
+        <a class="nav-link">Module 2</a>
     </div>
 
-    <div class="player-bar">
-        <div class="now-playing" id="now-playing-title">Select a fable to begin</div>
+    <!-- Main Content -->
+    <div class="main-view">
         
-        <div class="controls-container">
+        <!-- Header -->
+        <div class="playlist-header">
+            <div class="playlist-cover">📚</div>
+            <div class="playlist-info">
+                <p>Public Playlist</p>
+                <h1>English Fables</h1>
+                <div class="description">
+                    A complete collection of 61 classic fables for listening practice.
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <button class="big-play-btn" id="main-play-btn">▶</button>
+        </div>
+
+        <!-- Track List -->
+        <div class="track-list-container">
+            <div class="track-list-header">
+                <div>#</div>
+                <div>Title</div>
+                <div>Album</div>
+            </div>
+            
+            <div id="track-container">
+                <!-- Tracks injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Player -->
+    <div class="player-bar">
+        <div class="now-playing-section">
+            <div class="now-playing-art" style="display: none;" id="np-art"></div>
+            <div class="now-playing-info">
+                <div class="np-title" id="now-playing-title"></div>
+                <div class="np-artist" id="now-playing-artist"></div>
+            </div>
+        </div>
+        
+        <div class="controls-section">
             <div class="buttons">
                 <button class="control-btn" id="prev-btn">⏮</button>
                 <button class="control-btn play-pause-btn" id="play-pause-btn">▶</button>
@@ -206,21 +438,22 @@
                 <span id="duration">0:00</span>
             </div>
         </div>
-        <div style="width: 30%;"></div>
+        
+        <div class="right-section"></div>
     </div>
 
     <audio id="audio-player"></audio>
 
     <script>
-        // --- 1. YOUR TRACK DATA ---
+        // --- 1. TRACK DATA (Alphabetized and Cleaned) ---
         const tracks = [
-            { title: "The Camel in the Tent", src: "The Camel in the Tent.wav" },
             { title: "The Bat in the War", src: "The Bat in the War.wav" },
             { title: "The Bear and the Chipmunk", src: "The Bear and the Chipmunk.wav" },
             { title: "The Bear and the Two Friends", src: "The Bear and the Two Friends.wav" },
             { title: "The Boy and the Rattlesnake", src: "The Boy and the Rattlesnake.wav" },
             { title: "The Butterfly and the Kind Monk", src: "The Butterfly and the Kind Monk.wav" },
             { title: "The Camel and the Thistle", src: "The Camel and the Thistle.wav" },
+            { title: "The Camel in the Tent", src: "The Camel in the Tent.wav" },
             { title: "The Cat and the Fox", src: "The Cat and the Fox.wav" },
             { title: "The Crow and the Peacock Feathers", src: "The Crow and the Peacock Feathers.wav" },
             { title: "The Deer and His Antlers", src: "The Deer and His Antlers.wav" },
@@ -281,7 +514,10 @@
         const trackContainer = document.getElementById('track-container');
         const audioPlayer = document.getElementById('audio-player');
         const playPauseBtn = document.getElementById('play-pause-btn');
+        const mainPlayBtn = document.getElementById('main-play-btn');
         const nowPlayingTitle = document.getElementById('now-playing-title');
+        const nowPlayingArtist = document.getElementById('now-playing-artist');
+        const npArt = document.getElementById('np-art');
         const progressFill = document.getElementById('progress-fill');
         const progressBar = document.getElementById('progress-bar');
         const currentTimeEl = document.getElementById('current-time');
@@ -290,25 +526,30 @@
         const nextBtn = document.getElementById('next-btn');
 
         // --- 3. STATE ---
-        let currentTrackIndex = 0;
+        let currentTrackIndex = null;
         let isPlaying = false;
 
         // --- 4. INITIALIZATION ---
         function renderTracks() {
             trackContainer.innerHTML = '';
             tracks.forEach((track, index) => {
-                const li = document.createElement('li');
-                li.className = 'track-item';
+                const div = document.createElement('div');
+                div.className = 'track-item';
+                
                 if (index === currentTrackIndex && audioPlayer.src !== '') {
-                    li.classList.add('active');
+                    div.classList.add('playing');
                 }
                 
-                li.innerHTML = `
+                div.innerHTML = `
                     <div class="track-number">${index + 1}</div>
-                    <div class="track-title">${track.title}</div>
+                    <div class="track-info">
+                        <div class="track-title">${track.title}</div>
+                        <div class="track-artist">English Listening Practice</div>
+                    </div>
+                    <div class="track-album">61 Fables</div>
                 `;
-                li.onclick = () => playTrack(index);
-                trackContainer.appendChild(li);
+                div.onclick = () => playTrack(index);
+                trackContainer.appendChild(div);
             });
         }
 
@@ -320,16 +561,18 @@
             if (!audioPlayer.src.endsWith(encodeURI(track.src))) {
                 audioPlayer.src = track.src;
                 nowPlayingTitle.textContent = track.title;
+                nowPlayingArtist.textContent = "Listening Practice";
+                npArt.style.display = "block"; // Show cover art thumb
             }
             
             audioPlayer.play();
             isPlaying = true;
-            playPauseBtn.textContent = '⏸';
-            playPauseBtn.classList.add('playing');
+            updatePlayButtons(true);
             renderTracks();
         }
 
         function togglePlayPause() {
+            // If nothing loaded yet, play the first track
             if (!audioPlayer.src) {
                 if (tracks.length > 0) playTrack(0);
                 return;
@@ -338,24 +581,36 @@
             if (isPlaying) {
                 audioPlayer.pause();
                 isPlaying = false;
-                playPauseBtn.textContent = '▶';
-                playPauseBtn.classList.remove('playing');
+                updatePlayButtons(false);
             } else {
                 audioPlayer.play();
                 isPlaying = true;
+                updatePlayButtons(true);
+            }
+        }
+
+        function updatePlayButtons(playing) {
+            if (playing) {
                 playPauseBtn.textContent = '⏸';
                 playPauseBtn.classList.add('playing');
+                mainPlayBtn.textContent = '⏸';
+                mainPlayBtn.style.paddingLeft = '0';
+            } else {
+                playPauseBtn.textContent = '▶';
+                playPauseBtn.classList.remove('playing');
+                mainPlayBtn.textContent = '▶';
+                mainPlayBtn.style.paddingLeft = '5px';
             }
         }
 
         function playNext() {
-            if (currentTrackIndex < tracks.length - 1) {
+            if (currentTrackIndex !== null && currentTrackIndex < tracks.length - 1) {
                 playTrack(currentTrackIndex + 1);
             }
         }
 
         function playPrev() {
-            if (currentTrackIndex > 0) {
+            if (currentTrackIndex !== null && currentTrackIndex > 0) {
                 playTrack(currentTrackIndex - 1);
             } else if (audioPlayer.currentTime > 3) {
                 audioPlayer.currentTime = 0;
@@ -364,6 +619,7 @@
 
         // --- 6. EVENT LISTENERS ---
         playPauseBtn.addEventListener('click', togglePlayPause);
+        mainPlayBtn.addEventListener('click', togglePlayPause);
         nextBtn.addEventListener('click', playNext);
         prevBtn.addEventListener('click', playPrev);
         audioPlayer.addEventListener('ended', playNext);

@@ -1,1 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Fables</title>
+    <style>
+        :root {
+            --bg-base: #121212;
+            --bg-elevated: #282828;
+            --text-base: #b3b3b3;
+            --text-highlight: #ffffff;
+            --accent: #1db954; /* Spotify Green */
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-base);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            padding-bottom: 120px; /* Space for the bottom player */
+            background: linear-gradient(to bottom, #2b2b2b, var(--bg-base) 30%);
+        }
+
+        h1 {
+            color: var(--text-highlight);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .track-list {
+            list-style: none;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .track-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 4px;
+        }
+
+        .track-item:hover {
+            background-color: var(--bg-elevated);
+        }
+
+        .track-item.active {
+            color: var(--accent);
+        }
+
+        .track-number {
+            width: 40px;
+            text-align: right;
+            margin-right: 20px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .track-title {
+            flex: 1;
+            color: var(--text-highlight);
+            font-size: 1.1rem;
+        }
+
+        .track-item.active .track-title {
+            color: var(--accent);
+        }
+
+        /* Bottom Player */
+        .player-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            background-color: #181818;
+            border-top: 1px solid #282828;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .now-playing {
+            width: 30%;
+            color: var(--text-highlight);
+            font-weight: bold;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .controls-container {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--text-base);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .control-btn:hover {
+            color: var(--text-highlight);
+        }
+
+        .play-pause-btn {
+            background-color: var(--text-highlight);
+            color: #000;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding-left: 4px; /* visually centers the play triangle */
+        }
+        
+        .play-pause-btn.playing {
+            padding-left: 0; /* resets for pause icon */
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+            font-size: 0.8rem;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 5px;
+            background-color: #535353;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--text-highlight);
+            border-radius: 2px;
+            width: 0%;
+        }
+
+        .progress-bar:hover .progress-fill {
+            background-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>61 Fables Audio Library</h1>
+        <ul class="track-list" id="track-container">
+            <!-- Tracks injected by JavaScript -->
+        </ul>
+    </div>
+
+    <div class="player-bar">
+        <div class="now-playing" id="now-playing-title">Select a fable to begin</div>
+        
+        <div class="controls-container">
+            <div class="buttons">
+                <button class="control-btn" id="prev-btn">⏮</button>
+                <button class="control-btn play-pause-btn" id="play-pause-btn">▶</button>
+                <button class="control-btn" id="next-btn">⏭</button>
+            </div>
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+        <div style="width: 30%;"></div>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script>
+        // --- 1. YOUR TRACK DATA ---
+        // I have added the first few from your screenshot.
+        // You will need to add the rest following this exact format!
+        const tracks = [
+            { title: "The Ant and the Grasshopper", src: "The Ant and the Grasshopper.wav" },
+            { title: "The Ape and the Dolphin", src: "The Ape and the Dolphin.wav" },
+            { title: "The Ass and His Driver", src: "The Ass and His Driver.wav" },
+            { title: "The Ass and the Grasshopper", src: "The Ass and the Grasshopper.wav" },
+            { title: "The Ass, the Fox, and the Lion", src: "The Ass, the Fox, and the Lion.wav" },
+            { title: "The Bald Man and the Fly", src: "The Bald Man and the Fly.wav" }
+            // ADD MORE TRACKS HERE...
+        ];
+
+        // --- 2. DOM ELEMENTS ---
+        const trackContainer = document.getElementById('track-container');
+        const audioPlayer = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const nowPlayingTitle = document.getElementById('now-playing-title');
+        const progressFill = document.getElementById('progress-fill');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        // --- 3. STATE ---
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+
+        // --- 4. INITIALIZATION ---
+        function renderTracks() {
+            trackContainer.innerHTML = '';
+            tracks.forEach((track, index) => {
+                const li = document.createElement('li');
+                li.className = 'track-item';
+                if (index === currentTrackIndex && audioPlayer.src !== '') {
+                    li.classList.add('active');
+                }
+                
+                li.innerHTML = `
+                    <div class="track-number">${index + 1}</div>
+                    <div class="track-title">${track.title}</div>
+                `;
+                li.onclick = () => playTrack(index);
+                trackContainer.appendChild(li);
+            });
+        }
+
+        // --- 5. AUDIO LOGIC ---
+        function playTrack(index) {
+            currentTrackIndex = index;
+            const track = tracks[index];
+            
+            // Only load new src if it's a different track
+            if (!audioPlayer.src.endsWith(encodeURI(track.src))) {
+                audioPlayer.src = track.src;
+                nowPlayingTitle.textContent = track.title;
+            }
+            
+            audioPlayer.play();
+            isPlaying = true;
+            playPauseBtn.textContent = '⏸';
+            playPauseBtn.classList.add('playing');
+            renderTracks();
+        }
+
+        function togglePlayPause() {
+            if (!audioPlayer.src) {
+                // If nothing loaded yet, play the first track
+                if (tracks.length > 0) playTrack(0);
+                return;
+            }
+            
+            if (isPlaying) {
+                audioPlayer.pause();
+                isPlaying = false;
+                playPauseBtn.textContent = '▶';
+                playPauseBtn.classList.remove('playing');
+            } else {
+                audioPlayer.play();
+                isPlaying = true;
+                playPauseBtn.textContent = '⏸';
+                playPauseBtn.classList.add('playing');
+            }
+        }
+
+        function playNext() {
+            if (currentTrackIndex < tracks.length - 1) {
+                playTrack(currentTrackIndex + 1);
+            }
+        }
+
+        function playPrev() {
+            if (currentTrackIndex > 0) {
+                playTrack(currentTrackIndex - 1);
+            } else if (audioPlayer.currentTime > 3) {
+                audioPlayer.currentTime = 0;
+            }
+        }
+
+        // --- 6. EVENT LISTENERS ---
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        nextBtn.addEventListener('click', playNext);
+        prevBtn.addEventListener('click', playPrev);
+        audioPlayer.addEventListener('ended', playNext);
+
+        audioPlayer.addEventListener('timeupdate', () => {
+            if (audioPlayer.duration) {
+                const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressFill.style.width = `${percent}%`;
+                currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+            }
+        });
+
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audioPlayer.duration);
+        });
+
+        progressBar.addEventListener('click', (e) => {
+            if (!audioPlayer.duration) return;
+            const rect = progressBar.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            audioPlayer.currentTime = pos * audioPlayer.duration;
+        });
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return "0:00";
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Boot it up
+        renderTracks();
+    </script>
+</body>
+</html>

@@ -213,16 +213,68 @@
 
     <script>
         // --- 1. YOUR TRACK DATA ---
-        // I have added the first few from your screenshot.
-        // You will need to add the rest following this exact format!
         const tracks = [
-            { title: "The Ant and the Grasshopper", src: "The Ant and the Grasshopper.wav" },
-            { title: "The Ape and the Dolphin", src: "The Ape and the Dolphin.wav" },
-            { title: "The Ass and His Driver", src: "The Ass and His Driver.wav" },
-            { title: "The Ass and the Grasshopper", src: "The Ass and the Grasshopper.wav" },
-            { title: "The Ass, the Fox, and the Lion", src: "The Ass, the Fox, and the Lion.wav" },
-            { title: "The Bald Man and the Fly", src: "The Bald Man and the Fly.wav" }
-            // ADD MORE TRACKS HERE...
+            { title: "The Camel in the Tent", src: "The Camel in the Tent.wav" },
+            { title: "The Bat in the War", src: "The Bat in the War.wav" },
+            { title: "The Bear and the Chipmunk", src: "The Bear and the Chipmunk.wav" },
+            { title: "The Bear and the Two Friends", src: "The Bear and the Two Friends.wav" },
+            { title: "The Boy and the Rattlesnake", src: "The Boy and the Rattlesnake.wav" },
+            { title: "The Butterfly and the Kind Monk", src: "The Butterfly and the Kind Monk.wav" },
+            { title: "The Camel and the Thistle", src: "The Camel and the Thistle.wav" },
+            { title: "The Cat and the Fox", src: "The Cat and the Fox.wav" },
+            { title: "The Crow and the Peacock Feathers", src: "The Crow and the Peacock Feathers.wav" },
+            { title: "The Deer and His Antlers", src: "The Deer and His Antlers.wav" },
+            { title: "The Dog and His Reflection", src: "The Dog and His Reflection.wav" },
+            { title: "The Dog and the Wolf", src: "The Dog and the Wolf.wav" },
+            { title: "The Dog in the Manger", src: "The Dog in the Manger.wav" },
+            { title: "The Donkey and the Lapdog", src: "The Donkey and the Lapdog.wav" },
+            { title: "The Donkey and the Salt", src: "The Donkey and the Salt..wav" },
+            { title: "The Eagle and the Arrow", src: "The Eagle and the Arrow..wav" },
+            { title: "The Eagle and the Beetle", src: "The Eagle and the Beetle.wav" },
+            { title: "The Eagle Who Thought He Was a Chicken", src: "The Eagle Who Thought He Was a Chicken.wav" },
+            { title: "The Elephant and the Rope", src: "The Elephant and the Rope..wav" },
+            { title: "The Falcon and the King", src: "The Falcon and the King..wav" },
+            { title: "The Fox and the Stork", src: "The Fox and the Stork .wav" },
+            { title: "The Fox and the Traitor Rooster", src: "The Fox and the Traitor Rooster.wav" },
+            { title: "The Frogs Who Wanted a King", src: "The Frogs Who Wanted a King..wav" },
+            { title: "The Goose and the Golden Eggs", src: "The Goose and the Golden Eggs..wav" },
+            { title: "The Heron and the Fish", src: "The Heron and the Fish.wav" },
+            { title: "The Horse and the Loaded Donkey", src: "The Horse and the Loaded Donkey.wav" },
+            { title: "The Horse, the Stag, and the Rider", src: "The Horse, the Stag, and the Rider.wav" },
+            { title: "The Lazy Swallow and the Winter", src: "The Lazy Swallow and the Winter..wav" },
+            { title: "The Lion and the Clever Rabbit", src: "The Lion and the Clever Rabbit.wav" },
+            { title: "The Lion and the Mouse", src: "The Lion and the Mouse..wav" },
+            { title: "The Lion and the Painting", src: "The Lion and the Painting..wav" },
+            { title: "The Lion, the Donkey, and the Fox", src: "The Lion, the Donkey, and the Fox.wav" },
+            { title: "The Lions and the Divided Herd", src: "The Lions and the Divided Herd .wav" },
+            { title: "The Little Bird and the Cow", src: "The Little Bird and the Cow..wav" },
+            { title: "The Mice Who Wanted a Bell", src: "The Mice Who Wanted a Bell.wav" },
+            { title: "The Monkey and the Crocodile", src: "The Monkey and the Crocodile.wav" },
+            { title: "The Mouse, the Frog, and the Hawk", src: "The Mouse, the Frog, and the Hawk.wav" },
+            { title: "The Nightingale and the Hawk", src: "The Nightingale and the Hawk.wav" },
+            { title: "The Oak Tree and the Reed", src: "The Oak Tree and the Reed.wav" },
+            { title: "The Old Dog and the Hole", src: "The Old Dog and the Hole .wav" },
+            { title: "The Old Lion and the Footprints", src: "The Old Lion and the Footprints.wav" },
+            { title: "The Old Man and the Scorpion", src: "The Old Man and the Scorpion .wav" },
+            { title: "The Peacock and the Crane", src: "The Peacock and the Crane .wav" },
+            { title: "The Peasant and the Snake", src: "The Peasant and the Snake.wav" },
+            { title: "The Peasant Woman and the Mongoose", src: "The Peasant Woman and the Mongoose .wav" },
+            { title: "The Scorpion and the Frog", src: "The Scorpion and the Frog.wav" },
+            { title: "The Silent Elephant and the Noise", src: "The Silent Elephant and the Noise.wav" },
+            { title: "The Snake and the Steel File", src: "The Snake and the Steel File .wav" },
+            { title: "The Spider and the Flattered Fly", src: "The Spider and the Flattered Fly.wav" },
+            { title: "The Tiger and the Smart Fox", src: "The Tiger and the Smart Fox .wav" },
+            { title: "The Tiger and the Woodpecker", src: "The Tiger and the Woodpecker .wav" },
+            { title: "The Turtle and the Scorpion", src: "The Turtle and the Scorpion..wav" },
+            { title: "The Turtle and the Two Geese", src: "The Turtle and the Two Geese..wav" },
+            { title: "The Two Dogs", src: "The Two Dogs..wav" },
+            { title: "The Two Frogs and the Milk", src: "The Two Frogs and the Milk..wav" },
+            { title: "The Two Roosters and the Eagle", src: "The Two Roosters and the Eagle ..wav" },
+            { title: "The Two Seeds", src: "The Two Seeds..wav" },
+            { title: "The Warrior and the Loyal Wolf", src: "The Warrior and the Loyal Wolf..wav" },
+            { title: "The Wolf and the Lamb", src: "The Wolf and the Lamb..wav" },
+            { title: "The Wolf in Sheep’s Clothing", src: "The Wolf in Sheep’s Clothing..wav" },
+            { title: "The Woodcutter and the Trees", src: "The Woodcutter and the Trees..wav" }
         ];
 
         // --- 2. DOM ELEMENTS ---
@@ -265,7 +317,6 @@
             currentTrackIndex = index;
             const track = tracks[index];
             
-            // Only load new src if it's a different track
             if (!audioPlayer.src.endsWith(encodeURI(track.src))) {
                 audioPlayer.src = track.src;
                 nowPlayingTitle.textContent = track.title;
@@ -280,7 +331,6 @@
 
         function togglePlayPause() {
             if (!audioPlayer.src) {
-                // If nothing loaded yet, play the first track
                 if (tracks.length > 0) playTrack(0);
                 return;
             }
